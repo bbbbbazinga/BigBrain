@@ -13,7 +13,8 @@
 
 ## 0. Change Log
 
-* Coming Soon
+* 31/10: Clarity on how to yarn install added to top of section 2. Clarity on how bonus marks bleed.
+* 31/10: Moving `config.json` from `frontend` to `frontend/src`
 
 ## 1. Background & Motivation
 
@@ -32,6 +33,10 @@ To satisfy modern tastes and expectations you have also decided to ensure that t
 **This assignment is the process you building the front-end for that MVP to the standards described.** This assignment is closely modelled off the popular game [kahoot](https://kahoot.com/). If you're not familiar with the game, we would recommend spending the time to try it out so that you can get a feel for how this application may function.
 
 ## 2. The Front-end (Work to do)
+
+Navigate to the `frontend` folder and run `yarn install` to install all of the dependencies necessary to run the ReactJS app. Then run `yarn start` to start the ReactJS app.
+
+A series of features below need to be implemented in your ReactJS app to operate in conjunction with the backend (section 3).
 
 ### 2.1. Feature 1. Admin Auth (10%)
 
@@ -127,7 +132,7 @@ Tests must be run from inside the `frontend` folder by running `yarn test`.
  * Any routes you create must be intelligently and justifiably named.
 
 ### 2.9. Other notes
- * The port you can use to `fetch` data from the backend is defined in `frontend/config.json`
+ * The port you can use to `fetch` data from the backend is defined in `frontend/src/config.json`
 
 ## 3. The Back-end (Provided - no work required)
 
@@ -141,7 +146,7 @@ Once the backend has started, you can view the API documentation by navigating t
 
 **The backend is only stubbed for the time being. The routes function, though return 200 with no payload. This will change by the end of the first week**
 
-The port that the backend runs on (and that the frontend can use) is specified in `frontend/config.json`.
+The port that the backend runs on (and that the frontend can use) is specified in `frontend/src/config.json`.
 
 An insomnia config can be found, and will be updated, [here](http://www.cse.unsw.edu.au/~cs6080/20T3/assignments/ass3/insomnia.json).
 
@@ -245,6 +250,7 @@ Your assignment will be hand-marked by tutor(s) in the course according to the c
 				<li>Implementation of extra features that are not included in the spec.</li>
 				<li>Extra features should be non-trivial, have a clear justification for existing, and show either a form of technical, product, or creative flare.</li>
 				<li>Any extra features written down in `extra.md` in the project folder</li>
+				<li>Any bonus marks that extend your ass3 mark above 100% will bleed into other assignment marks, but cannot contribute outside of the 60% of the course that is allocated for assignment marks</li>
 			</ul>
 		</td>
 	</tr>
