@@ -96,7 +96,15 @@
                 "type": "number",
                 "description": "The ID of the active session for this quiz. If no ID is present, it's null",
                 "nullable": true,
-                "example": false
+                "example": null
+            },
+            "QuizInactiveSessions": {
+                "type": "array",
+                "description": "IDs of all previously active (but no longer active) sessions",
+                "items": {
+                    "type": "number",
+                    "example": 4545546
+                }
             },
             "QuizQuestions": {
                 "type": "array",
@@ -140,10 +148,13 @@
                     "example": "Hayden"
                 }
             },
-            "AnswerId": {
-                "type": "number",
+            "AnswerIds": {
+                "type": "array",
                 "description": "ID of the answer",
-                "example": 56513315
+                "items": {
+                    "type": "number",
+                    "example": 56513315
+                }
             },
             "AnswerCorrect": {
                 "type": "boolean",
@@ -283,7 +294,7 @@
                 "description": "ID of the player in the current quiz session"
             },
             "PlayerAnswers": {
-                "name": "Answer ID",
+                "name": "Answer IDs",
                 "description": "Player chosen answer IDs for a particular question",
                 "in": "body",
                 "schema": {
@@ -346,6 +357,9 @@
                                         },
                                         "active": {
                                             "$ref": "#/components/fields/QuizActive"
+                                        },
+                                        "oldSessions": {
+                                            "$ref": "#/components/fields/QuizInactiveSessions"
                                         }
                                     }
                                 }
@@ -358,11 +372,6 @@
                     "schema": {
                         "type": "object",
                         "properties": {
-                            "quizId": {
-                                "type": "integer",
-                                "example": 28903489234,
-                                "description": "ID of the quiz that has been generated"
-                            }
                         }
                     }
                 },                
@@ -388,6 +397,9 @@
                             },
                             "active": {
                                 "$ref": "#/components/fields/QuizActive"
+                            },
+                            "oldSessions": {
+                                "$ref": "#/components/fields/QuizInactiveSessions"
                             }
                         }
                     }
@@ -406,7 +418,7 @@
                                     "items": {
                                         "properties": {
                                             "answerIds": {
-                                                "$ref": "#/components/fields/AnswerId"
+                                                "$ref": "#/components/fields/AnswerIds"
                                             },
                                             "correct": {
                                                 "$ref": "#/components/fields/AnswerCorrect"
@@ -425,7 +437,7 @@
                         "items": {
                             "properties": {
                                 "answerIds": {
-                                    "$ref": "#/components/fields/AnswerId"
+                                    "$ref": "#/components/fields/AnswerIds"
                                 },
                                 "correct": {
                                     "$ref": "#/components/fields/AnswerCorrect"
@@ -439,20 +451,28 @@
                     "schema": {
                         "type": "object",
                         "properties": {
-                            "active": {
-                                "$ref": "#/components/fields/SessionActive"
-                            },
-                            "answerAvailable": {
-                                "$ref": "#/components/fields/SessionAnswerAvailable" 
-                            },
-                            "position": {
-                                "$ref": "#/components/fields/SessionPosition"
-                            },
-                            "questions": {
-                                "$ref": "#/components/fields/QuizQuestions"
-                            },
-                            "players": {
-                                "$ref": "#/components/fields/SessionPlayers"
+                            "results": {
+                                "type": "object",
+                                "properties": {
+                                    "active": {
+                                        "$ref": "#/components/fields/SessionActive"
+                                    },
+                                    "answerAvailable": {
+                                        "$ref": "#/components/fields/SessionAnswerAvailable" 
+                                    },
+                                    "position": {
+                                        "$ref": "#/components/fields/SessionPosition"
+                                    },
+                                    "questions": {
+                                        "$ref": "#/components/fields/QuizQuestions"
+                                    },
+                                    "numQuestions": {
+                                        "$ref": "#/components/fields/QuizNumQuestions"
+                                    },
+                                    "players": {
+                                        "$ref": "#/components/fields/SessionPlayers"
+                                    }
+                                }
                             }
                         }
                     }  
@@ -480,6 +500,17 @@
                 },
                 "PlayerAnswers": {
                     "description": "Correct answer IDs for a particular question",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "answerIds": {
+                                "$ref": "#/components/fields/PlayerAnswers"
+                            }
+                        }
+                    }
+                },
+                "PlayerAnswersAll": {
+                    "description": "All answer IDs for a particular question",
                     "schema": {
                         "type": "object",
                         "properties": {
@@ -713,7 +744,6 @@
                 "summary": "Join an active session as a new player",
                 "tags": [ "Player" ],
                 "parameters": [
-                    { "$ref": "#/components/parameters/Authorization" },
                     { "$ref": "#/components/parameters/SessionIdQuery" },
                     { "$ref": "#/components/parameters/PlayerJoinBody" }
                 ],
@@ -728,7 +758,6 @@
                 "summary": "For the current question that session is up to, this gets the details of the question",
                 "tags": [ "Player" ],
                 "parameters": [
-                    { "$ref": "#/components/parameters/Authorization" },
                     { "$ref": "#/components/parameters/PlayerIdQuery" }
                 ],
                 "responses": {
@@ -742,11 +771,10 @@
                 "summary": "Once the question timer is finished, returns the correct answer",
                 "tags": [ "Player" ],
                 "parameters": [
-                    { "$ref": "#/components/parameters/Authorization" },
                     { "$ref": "#/components/parameters/PlayerIdQuery" }
                 ],
                 "responses": {
-                    "200": { "$ref": "#/components/responses/200/PlayerAnswers" },
+                    "200": { "$ref": "#/components/responses/200/PlayerAnswersAll" },
                     "400": { "$ref": "#/components/responses/400" }
                 }
             },
@@ -754,7 +782,6 @@
                 "summary": "For the current question that the session is up to, this allows the player to submit their answer",
                 "tags": [ "Player" ],
                 "parameters": [
-                    { "$ref": "#/components/parameters/Authorization" },
                     { "$ref": "#/components/parameters/PlayerIdQuery" },
                     { "$ref": "#/components/parameters/PlayerAnswers" }
                 ],
@@ -769,7 +796,6 @@
                 "summary": "Once a session has ended, this allows players to collect the results of their performance, benchmarked against others",
                 "tags": [ "Player" ],
                 "parameters": [
-                    { "$ref": "#/components/parameters/Authorization" },
                     { "$ref": "#/components/parameters/PlayerIdQuery" }
                 ],
                 "responses": {
