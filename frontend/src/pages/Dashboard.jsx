@@ -1,8 +1,46 @@
-import React from 'react';
+import { React, useEffect, useContext } from 'react';
+import LogoutBtn from '../components/Logout';
+import CreateGame from '../components/CreateGame';
+import EachGame from '../components/EachGame';
+import API from '../helper/api';
+import { StoreContext } from '../utils/store';
 
 function Dashboard() {
+  const context = useContext(StoreContext);
+  const { games: [games, setGames] } = context;
+
+  useEffect(() => {
+    const api = new API('http://localhost:5005');
+    const token = window.localStorage.getItem('token');
+    const query = `Bearer ${token}`;
+    api.get('admin/quiz', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: query,
+      },
+    })
+      .then((data) => {
+        setGames(data.quizzes);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, [setGames]);
+
   return (
-    <p>Dashboard</p>
+    <div>
+      <LogoutBtn />
+      <CreateGame />
+      {games.map((eachGame) => (
+        <EachGame
+          id={eachGame.id}
+          title={eachGame.name}
+          numbers={eachGame.oldSessions.length}
+          time="90s"
+          thumbnail={eachGame.thumbnail}
+        />
+      ))}
+    </div>
   );
 }
 

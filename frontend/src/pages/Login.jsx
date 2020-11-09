@@ -22,9 +22,7 @@ function Login() {
     })
       .then((res) => {
         window.localStorage.setItem('token', res.token);
-        history.push('/Dashboard');
-        document.getElementById('logout').style.display = 'block';
-        document.getElementById('login').style.display = 'none';
+        history.push('/dashboard');
       })
       .catch((err) => {
         alert(err);
