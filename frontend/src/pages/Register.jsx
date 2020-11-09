@@ -23,6 +23,7 @@ function Register() {
       },
     })
       .then(() => {
+        // window.localStorage.setItem('token', JSON.stringify(res));
         history.push('/login');
       })
       .catch((err) => {

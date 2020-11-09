@@ -9,6 +9,7 @@ import {
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import LogoutBTN from './pages/logout';
 
 function App() {
   return (
@@ -19,8 +20,11 @@ function App() {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li id="login">
               <Link to="/login">Login</Link>
+            </li>
+            <li id="logout" style={{ display: 'none' }}>
+              <Link to="/login"><button type="button" onClick={LogoutBTN}>Logout</button></Link>
             </li>
             <li>
               <Link to="/register">Register</Link>
