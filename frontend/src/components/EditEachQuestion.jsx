@@ -58,9 +58,11 @@ function EditEachQuestion({ quizId, questionId }) {
 
     // when click the submit button, update the url of the image
     const newQuestion = { ...question };
-    newQuestion.image = image;
-    setQuestion(newQuestion);
-
+    // check if choose a image, if not, do not update
+    if (image !== '') {
+      newQuestion.image = image;
+      setQuestion(newQuestion);
+    }
     // the put method will change the quiz/game itself,
     // so we need to update the eachGame
     const newEachGame = { ...eachGame };
