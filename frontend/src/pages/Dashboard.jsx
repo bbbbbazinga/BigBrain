@@ -38,8 +38,6 @@ function Dashboard() {
           key={eachGame.id}
           id={eachGame.id}
           title={eachGame.name}
-          numbers={eachGame.oldSessions.length}
-          time="90s"
           thumbnail={eachGame.thumbnail}
         />
       ))}

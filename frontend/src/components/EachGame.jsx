@@ -1,4 +1,9 @@
-import { React, useContext } from 'react';
+import {
+  React,
+  useContext,
+  useState,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import API from '../helper/api';
@@ -6,7 +11,7 @@ import { StoreContext } from '../utils/store';
 
 // Each game component, where we can edit or delete
 function EachGame({
-  id, title, numbers, time, thumbnail,
+  id, title, thumbnail,
 }) {
   const api = new API('http://localhost:5005');
   const token = window.localStorage.getItem('token');
@@ -46,6 +51,27 @@ function EachGame({
     }
   };
 
+  // use get method of "admin/quiz/${quizid}" to get the number of questions and total time
+  const [qNum, setQNum] = useState(0);
+  const [qTime, setQTime] = useState(0);
+
+  useEffect(() => {
+    api.get(`admin/quiz/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: query,
+      },
+    })
+      .then((data) => {
+        setQNum(data.questions.length);
+        const newQTime = data.questions.reduce((total, q) => (total + Number(q.timeLimit)), 0);
+        setQTime(newQTime);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  });
+
   return (
     <div style={{ border: '1px solid black', margin: '10px 0' }}>
       <button type="button" onClick={editOp}>Edit</button>
@@ -59,13 +85,17 @@ function EachGame({
       </p>
       <p>
         Number of questions:
-        {numbers}
+        {qNum}
       </p>
       <p>
         Total Time:
-        {time}
+        {qTime}
       </p>
-      <img src={thumbnail} alt="thumbnail" />
+      {
+        thumbnail === null
+          ? <div />
+          : <img src={thumbnail} alt="thumbnail" />
+      }
     </div>
   );
 }
@@ -73,8 +103,6 @@ function EachGame({
 EachGame.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  numbers: PropTypes.number.isRequired,
-  time: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
 };
 
