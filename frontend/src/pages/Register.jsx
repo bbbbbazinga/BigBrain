@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../helper/api';
 
+// page to register
 function Register() {
   const history = useHistory();
   const api = new API('http://localhost:5005');

@@ -1,8 +1,10 @@
 import { React, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import API from '../helper/api';
 import { StoreContext } from '../utils/store';
 
+// Each game component, where we can edit or delete
 function EachGame({
   id, title, numbers, time, thumbnail,
 }) {
@@ -13,8 +15,12 @@ function EachGame({
   const context = useContext(StoreContext);
   const { games: [games, setGames] } = context;
 
+  const history = useHistory();
+
   const editOp = (event) => {
     event.preventDefault();
+    const quizId = event.target.parentNode.querySelector('.game-id').textContent;
+    history.push(`/editgame/${quizId}`);
   };
 
   const deleteOp = (event) => {
@@ -29,7 +35,7 @@ function EachGame({
         },
       })
         .then(() => {
-          alert('Delete Successfully');
+          // alert('Delete Successfully');
           // use setGames to update the page information
           const newGames = games.filter((game) => game.id !== Number(quizId));
           setGames(newGames);
@@ -67,7 +73,7 @@ function EachGame({
 EachGame.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  numbers: PropTypes.string.isRequired,
+  numbers: PropTypes.number.isRequired,
   time: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
 };

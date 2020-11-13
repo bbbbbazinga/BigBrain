@@ -5,6 +5,8 @@ import EachGame from '../components/EachGame';
 import API from '../helper/api';
 import { StoreContext } from '../utils/store';
 
+// page to show all created games
+// and provided a create btn to create new game
 function Dashboard() {
   const context = useContext(StoreContext);
   const { games: [games, setGames] } = context;
@@ -33,6 +35,7 @@ function Dashboard() {
       <CreateGame />
       {games.map((eachGame) => (
         <EachGame
+          key={eachGame.id}
           id={eachGame.id}
           title={eachGame.name}
           numbers={eachGame.oldSessions.length}

@@ -9,6 +9,9 @@ import {
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import EditGame from './pages/EditGame';
+import EditQuestion from './pages/EditQuestion';
+// import EditQuestion from './pages/EditQuestion';
 import StoreProvider from './utils/store';
 
 function App() {
@@ -33,20 +36,24 @@ function App() {
             </ul>
           </nav>
 
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/login">
+            <Route exact path="/">
+              Home
+            </Route>
+            <Route exact path="/login">
               <Login />
             </Route>
-            <Route path="/register">
+            <Route exact path="/register">
               <Register />
             </Route>
-            <Route path="/dashboard">
+            <Route exact path="/dashboard">
               <Dashboard />
             </Route>
-            <Route path="/">
-              Home
+            <Route exact path="/editgame/:gameid">
+              <EditGame />
+            </Route>
+            <Route exact path="/editquestion/:gameid/:questionid">
+              <EditQuestion />
             </Route>
           </Switch>
         </div>

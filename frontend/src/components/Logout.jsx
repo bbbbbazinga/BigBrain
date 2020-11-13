@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../helper/api';
 
+// logout component
 function LogoutBtn() {
   const history = useHistory();
   const api = new API('http://localhost:5005');

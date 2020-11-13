@@ -2,6 +2,7 @@ import { React, useState, useContext } from 'react';
 import API from '../helper/api';
 import { StoreContext } from '../utils/store';
 
+// Create a new game component
 function CreateGame() {
   const api = new API('http://localhost:5005');
   const token = window.localStorage.getItem('token');
@@ -14,7 +15,7 @@ function CreateGame() {
   // toggle the "create a new game"
   const showInput = (event) => {
     event.preventDefault();
-    const createDiv = document.querySelector('.createDiv');
+    const createDiv = document.querySelector('.createGame');
     createDiv.style.display = createDiv.style.display === 'none' ? 'block' : 'none';
   };
 
@@ -56,7 +57,7 @@ function CreateGame() {
   return (
     <div>
       <button type="button" onClick={showInput}>Create a New Game</button>
-      <div className="createDiv" style={{ display: 'none' }}>
+      <div className="createGame" style={{ display: 'none' }}>
         <input type="text" placeholder="New Game Name" value={game} onChange={(event) => setGame(event.target.value)} />
         <button type="button" onClick={create}>Create</button>
       </div>
