@@ -9,8 +9,10 @@ import {
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Results from './pages/Results';
 import EditGame from './pages/EditGame';
 import EditQuestion from './pages/EditQuestion';
+import PlayJoin from './pages/PlayJoin';
 // import EditQuestion from './pages/EditQuestion';
 import StoreProvider from './utils/store';
 
@@ -49,11 +51,17 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
+            <Route exact path="/results/:active">
+              <Results />
+            </Route>
             <Route exact path="/editgame/:gameid">
               <EditGame />
             </Route>
             <Route exact path="/editquestion/:gameid/:questionid">
               <EditQuestion />
+            </Route>
+            <Route exact path="/jointoplay/:active">
+              <PlayJoin />
             </Route>
           </Switch>
         </div>

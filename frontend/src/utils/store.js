@@ -8,6 +8,7 @@ const StoryProvider = ({ children }) => {
   const [games, setGames] = useState([]);
   // return from the 'GET/admin/quiz/{quizid}'
   const [eachGame, setEachGame] = useState({});
+
   /* format is defined by myself:
       {
         "questionId": "1tlcb5rdp4s",
@@ -34,10 +35,15 @@ const StoryProvider = ({ children }) => {
   */
   const [question, setQuestion] = useState({});
 
+  const [open, setOpen] = useState(false);
+  const [results, setResults] = useState([]);
+
   const store = {
     games: [games, setGames],
     eachGame: [eachGame, setEachGame],
     question: [question, setQuestion],
+    open: [open, setOpen],
+    results: [results, setResults],
   };
 
   return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;

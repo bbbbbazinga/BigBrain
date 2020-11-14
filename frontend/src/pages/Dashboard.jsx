@@ -38,9 +38,11 @@ function Dashboard() {
           key={eachGame.id}
           id={eachGame.id}
           title={eachGame.name}
+          // 这里问题的数量参数不对应
           numbers={eachGame.oldSessions.length}
           time="90s"
           thumbnail={eachGame.thumbnail}
+          active={eachGame.active}
         />
       ))}
     </div>
