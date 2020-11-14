@@ -1,4 +1,9 @@
-import { React, useContext } from 'react';
+import {
+  React,
+  useContext,
+  useState,
+  useEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import API from '../helper/api';
@@ -7,7 +12,7 @@ import PopUpModal from './popUpModal';
 
 // Each game component, where we can edit or delete
 function EachGame({
-  id, title, numbers, time, thumbnail, active,
+  id, title, thumbnail, active,
 }) {
   const api = new API('http://localhost:5005');
   const token = window.localStorage.getItem('token');
@@ -47,25 +52,26 @@ function EachGame({
     }
   };
 
-  // const stopOp = (event) => {
-  //   event.preventDefault();
-  //   const quizId = event.target.parentNode.querySelector('.game-id').textContent;
-  //   const stopG = window.confirm('Are you sure to stop the game');
-  //   if (stopG) {
-  //     api.post(`admin/quiz/${quizId}/end`, {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: query,
-  //       },
-  //     })
-  //       .then(() => {
-  //         alert('Stop Successfully');
-  //       })
-  //       .catch((err) => {
-  //         alert(err);
-  //       });
-  //   }
-  // };
+  // use get method of "admin/quiz/${quizid}" to get the number of questions and total time
+  const [qNum, setQNum] = useState(0);
+  const [qTime, setQTime] = useState(0);
+
+  useEffect(() => {
+    api.get(`admin/quiz/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: query,
+      },
+    })
+      .then((data) => {
+        setQNum(data.questions.length);
+        const newQTime = data.questions.reduce((total, q) => (total + Number(q.timeLimit)), 0);
+        setQTime(newQTime);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  });
 
   return (
     <div style={{ border: '1px solid black', margin: '10px 0' }}>
@@ -81,17 +87,17 @@ function EachGame({
       </p>
       <p>
         Number of questions:
-        {numbers}
+        {qNum}
       </p>
       <p>
         Total Time:
-        {time}
+        {qTime}
       </p>
-      <img src={thumbnail} alt="thumbnail" />
-      <p>
-        Session ID:
-        {active}
-      </p>
+      {
+        thumbnail === null
+          ? <div />
+          : <img src={thumbnail} alt="thumbnail" />
+      }
     </div>
   );
 }
@@ -99,8 +105,6 @@ function EachGame({
 EachGame.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  numbers: PropTypes.number.isRequired,
-  time: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
   active: PropTypes.number.isRequired,
 };
