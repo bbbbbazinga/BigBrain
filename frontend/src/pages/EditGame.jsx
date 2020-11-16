@@ -26,7 +26,6 @@ function EditGame() {
       },
     })
       .then((data) => {
-        // console.log(data);
         setEachGame(data);
       })
       .catch((err) => {

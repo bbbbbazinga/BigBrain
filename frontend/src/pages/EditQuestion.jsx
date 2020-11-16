@@ -44,10 +44,10 @@ function EditQuestion() {
 
   return (
     <div>
-      {`EditGame ${gameid} ${questionid}`}
+      {/* {`EditGame ${gameid} ${questionid}`}
       <br />
       {question.question}
-      <br />
+      <br /> */}
       {eachGame.name}
       <br />
       <button type="button" onClick={() => history.goBack()}>Back</button>

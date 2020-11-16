@@ -68,9 +68,7 @@ function EachGame({
         const newQTime = data.questions.reduce((total, q) => (total + Number(q.timeLimit)), 0);
         setQTime(newQTime);
       })
-      .catch((err) => {
-        alert(err);
-      });
+      .catch(() => {});
   });
 
   return (

@@ -11,7 +11,7 @@ function CreateQuestion({ quizId }) {
   const { eachGame: [eachGame, setEachGame] } = context;
 
   const [question, setQuestion] = useState('');
-  const [type, setType] = useState('single select');
+  const [type, setType] = useState('Single select');
   const [timeLimit, setTimeLimit] = useState('');
   const [points, setPoints] = useState('');
   const [image, setImage] = useState('');
@@ -108,8 +108,8 @@ function CreateQuestion({ quizId }) {
         <input type="text" placeholder="Question Description" value={question} onChange={(e) => setQuestion(e.target.value)} />
         Question Type:
         <select onChange={(e) => setType(e.target.value)}>
-          <option value="single select">Single select</option>
-          <option value="multi-select">Multi-select</option>
+          <option value="Single select">Single select</option>
+          <option value="Multi-select">Multi-select</option>
         </select>
         Time Limit:
         <input type="number" placeholder="End with second" value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} />

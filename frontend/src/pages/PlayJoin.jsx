@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import API from '../helper/api';
+import PlayEachQuestion from '../components/PlayEachQuestion';
 
 function PlayJoin() {
   const { active } = useParams();
   const api = new API('http://localhost:5005');
-
+  const token = window.localStorage.getItem('token');
+  const query = `Bearer ${token}`;
+  const curQuizId = localStorage.getItem('curQuizId');
   const [name, setName] = useState('');
+  const [playerId, setPlayerId] = useState(0);
 
-  const nameForm = async (event) => {
+  const nameForm = (event) => {
     event.preventDefault();
     api.post(`play/join/${active}`, {
       body: JSON.stringify({
@@ -20,22 +24,20 @@ function PlayJoin() {
     })
       .then((res) => {
         alert('Play Games');
-        console.log(res);
+        setPlayerId(res.playerId);
         const playGame = document.querySelector('.playGame');
         playGame.style.display = playGame.style.display === 'none' ? 'block' : 'none';
         const nForm = document.querySelector('#nameForm');
         nForm.style.display = nForm.style.display === 'none' ? 'block' : 'none';
-        api.get(`play/${res.playerId}/question`, {
+        // use it to advance the game on to the next question
+        api.post(`admin/quiz/${curQuizId}/advance`, {
           headers: {
             'Content-Type': 'application/json',
+            Authorization: query,
           },
         })
-          .then((data) => {
-            console.log(data);
-          })
-          .catch((err) => {
-            alert(err);
-          });
+          .then(() => {})
+          .catch((err) => console.log(err));
       })
       .catch((err) => {
         alert(err);
@@ -51,9 +53,18 @@ function PlayJoin() {
         <br />
         <button type="submit" form="nameForm" onClick={nameForm}>Play</button>
       </form>
-      <div className="playGame" style={{ display: 'none' }}>
-        play it
-      </div>
+      {
+        playerId === 0
+          ? <div />
+          : (
+            <div className="playGame" style={{ display: 'none' }}>
+              <PlayEachQuestion
+                playerId={playerId}
+                curQuizId={curQuizId}
+              />
+            </div>
+          )
+      }
     </>
   );
 }

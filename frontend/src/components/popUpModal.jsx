@@ -1,11 +1,15 @@
-import { React, useContext, useState } from 'react';
+import {
+  React,
+  // useContext,
+  useState,
+} from 'react';
 import { useHistory } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 // import Backdrop from '@material-ui/core/Backdrop';
 import API from '../helper/api';
-import { StoreContext } from '../utils/store';
+// import { StoreContext } from '../utils/store';
 import clickToCopy from '../helper/clickToCopy';
 
 function rand() {
@@ -40,8 +44,9 @@ function PopUpModal() {
   const token = window.localStorage.getItem('token');
   const query = `Bearer ${token}`;
   const history = useHistory();
-  const context = useContext(StoreContext);
-  const { open: [open, setOpen] } = context;
+  // const context = useContext(StoreContext);
+  const [open, setOpen] = useState(false);
+  // const { open: [open, setOpen] } = context;
   const [modalStyle] = useState(getModalStyle);
   const [active, setActive] = useState('');
 
@@ -52,6 +57,9 @@ function PopUpModal() {
   const handleOpen = (event) => {
     event.preventDefault();
     const quizId = event.target.parentNode.parentNode.querySelector('.game-id').textContent;
+    // get the current game's id
+    localStorage.setItem('curQuizId', quizId);
+
     api.post(`admin/quiz/${quizId}/start`, {
       headers: {
         'Content-Type': 'application/json',
@@ -96,6 +104,7 @@ function PopUpModal() {
     const quizId = event.target.parentNode.parentNode.querySelector('.game-id').textContent;
     const stopG = window.confirm('Are you sure to stop the game');
     if (stopG) {
+      localStorage.removeItem('curQuizId');
       api.post(`admin/quiz/${quizId}/end`, {
         headers: {
           'Content-Type': 'application/json',

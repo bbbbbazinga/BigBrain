@@ -97,8 +97,8 @@ function EditEachQuestion({ quizId, questionId }) {
       <input type="text" placeholder="Question Description" value={question.question} onChange={(e) => changeContent(e, 'question')} />
       Question Type:
       <select defaultValue={question.type} onChange={(e) => changeContent(e, 'type')}>
-        <option value="single select">Single select</option>
-        <option value="multi-select">Multi-select</option>
+        <option value="Single select">Single select</option>
+        <option value="Multi-select">Multi-select</option>
       </select>
       Time Limit:
       <input type="number" placeholder="End with second" value={question.timeLimit} onChange={(e) => changeContent(e, 'timeLimit')} />

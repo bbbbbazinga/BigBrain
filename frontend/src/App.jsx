@@ -13,7 +13,6 @@ import Results from './pages/Results';
 import EditGame from './pages/EditGame';
 import EditQuestion from './pages/EditQuestion';
 import PlayJoin from './pages/PlayJoin';
-// import EditQuestion from './pages/EditQuestion';
 import StoreProvider from './utils/store';
 
 function App() {
