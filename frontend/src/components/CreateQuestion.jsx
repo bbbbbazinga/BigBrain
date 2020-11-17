@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { StoreContext } from '../utils/store';
 import API from '../helper/api';
 import imageToDataUrl from '../helper/imageToDataUrl';
+import UploadJSON from './UploadJSON';
 
 // Create a new question component
 function CreateQuestion({ quizId }) {
@@ -103,6 +104,7 @@ function CreateQuestion({ quizId }) {
   return (
     <div>
       <button type="button" onClick={showInput}>Create a New Question</button>
+      <UploadJSON quizId={quizId} />
       <div className="createQuestion" style={{ display: 'none', flexDirection: 'column' }}>
         Question:
         <input type="text" placeholder="Question Description" value={question} onChange={(e) => setQuestion(e.target.value)} />
