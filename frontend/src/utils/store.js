@@ -11,7 +11,7 @@ const StoryProvider = ({ children }) => {
 
   /* format is defined by myself:
       {
-        "questionId": "1tlcb5rdp4s",
+        "qid": "1tlcb5rdp4s",
         "question": "which city is the capital of China",
         "type": "single select",
         "timeLimit": 60,
@@ -35,15 +35,10 @@ const StoryProvider = ({ children }) => {
   */
   const [question, setQuestion] = useState({});
 
-  const [open, setOpen] = useState(false);
-  const [results, setResults] = useState([]);
-
   const store = {
     games: [games, setGames],
     eachGame: [eachGame, setEachGame],
     question: [question, setQuestion],
-    open: [open, setOpen],
-    results: [results, setResults],
   };
 
   return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>;

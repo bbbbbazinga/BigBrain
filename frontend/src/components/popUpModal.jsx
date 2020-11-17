@@ -1,6 +1,5 @@
 import {
   React,
-  // useContext,
   useState,
 } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -9,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 // import Backdrop from '@material-ui/core/Backdrop';
 import API from '../helper/api';
-// import { StoreContext } from '../utils/store';
 import clickToCopy from '../helper/clickToCopy';
 
 function rand() {
@@ -44,9 +42,8 @@ function PopUpModal() {
   const token = window.localStorage.getItem('token');
   const query = `Bearer ${token}`;
   const history = useHistory();
-  // const context = useContext(StoreContext);
+
   const [open, setOpen] = useState(false);
-  // const { open: [open, setOpen] } = context;
   const [modalStyle] = useState(getModalStyle);
   const [active, setActive] = useState('');
 
@@ -124,6 +121,21 @@ function PopUpModal() {
     }
   };
 
+  // to advance question
+  const nextQ = (event) => {
+    event.preventDefault();
+    const quizId = event.target.parentNode.parentNode.querySelector('.game-id').textContent;
+
+    api.post(`admin/quiz/${quizId}/advance`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: query,
+      },
+    })
+      .then(() => {})
+      .catch((err) => alert(err));
+  };
+
   const url = `http://localhost:3000/jointoplay/${active}`;
 
   const body = (
@@ -141,6 +153,7 @@ function PopUpModal() {
     <div>
       <button type="button" onClick={handleOpen}>Start to Play</button>
       <button type="button" onClick={stopOp}>Stop the Game</button>
+      <button type="button" onClick={nextQ}>Advance</button>
       <Modal
         open={open}
         onClose={handleClose}

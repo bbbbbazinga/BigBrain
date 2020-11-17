@@ -6,8 +6,8 @@ import PlayEachQuestion from '../components/PlayEachQuestion';
 function PlayJoin() {
   const { active } = useParams();
   const api = new API('http://localhost:5005');
-  const token = window.localStorage.getItem('token');
-  const query = `Bearer ${token}`;
+  // const token = window.localStorage.getItem('token');
+  // const query = `Bearer ${token}`;
   const curQuizId = localStorage.getItem('curQuizId');
   const [name, setName] = useState('');
   const [playerId, setPlayerId] = useState(0);
@@ -25,19 +25,11 @@ function PlayJoin() {
       .then((res) => {
         alert('Play Games');
         setPlayerId(res.playerId);
+        console.log(res.playerId);
         const playGame = document.querySelector('.playGame');
         playGame.style.display = playGame.style.display === 'none' ? 'block' : 'none';
         const nForm = document.querySelector('#nameForm');
         nForm.style.display = nForm.style.display === 'none' ? 'block' : 'none';
-        // use it to advance the game on to the next question
-        api.post(`admin/quiz/${curQuizId}/advance`, {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: query,
-          },
-        })
-          .then(() => {})
-          .catch((err) => console.log(err));
       })
       .catch((err) => {
         alert(err);
