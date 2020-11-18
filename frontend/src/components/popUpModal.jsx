@@ -96,28 +96,26 @@ function PopUpModal() {
       });
   };
 
-  const stopOp = (event) => {
+  const stopOp = async (event) => {
     event.preventDefault();
     const quizId = event.target.parentNode.parentNode.querySelector('.game-id').textContent;
     const stopG = window.confirm('Are you sure to stop the game');
     if (stopG) {
       localStorage.removeItem('curQuizId');
-      api.post(`admin/quiz/${quizId}/end`, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: query,
-        },
-      })
-        .then(() => {
-          const turnToRes = window.confirm('Would you like to view the results?');
-          // alert('Stop Successfully');
-          if (turnToRes) {
-            history.push(`/results/${active}`);
-          }
-        })
-        .catch((err) => {
-          alert(err);
+      try {
+        await api.post(`admin/quiz/${quizId}/end`, {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: query,
+          },
         });
+      } catch (err) {
+        console.log(err);
+      }
+      const turnToRes = window.confirm('Would you like to view the results?');
+      if (turnToRes) {
+        history.push(`/results/${active}`);
+      }
     }
   };
 

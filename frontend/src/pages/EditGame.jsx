@@ -1,6 +1,7 @@
 import { React, useEffect, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import LogoutBtn from '../components/Logout';
+import UpdateBtn from '../components/UpdateBtn';
 import CreateQuestion from '../components/CreateQuestion';
 import API from '../helper/api';
 import { StoreContext } from '../utils/store';
@@ -37,6 +38,9 @@ function EditGame() {
     <div>
       <button type="button" onClick={() => history.push('/dashboard')}>Back</button>
       <LogoutBtn />
+      <UpdateBtn
+        quizId={gameid}
+      />
       <CreateQuestion
         quizId={gameid}
       />

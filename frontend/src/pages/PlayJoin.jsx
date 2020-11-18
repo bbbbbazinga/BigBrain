@@ -23,7 +23,6 @@ function PlayJoin() {
       },
     })
       .then((res) => {
-        alert('Play Games');
         setPlayerId(res.playerId);
         console.log(res.playerId);
         const playGame = document.querySelector('.playGame');

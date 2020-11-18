@@ -80,7 +80,7 @@ function EachGame({
         {id}
       </p>
       <p>
-        Title:
+        Game Name:
         {title}
       </p>
       <p>
