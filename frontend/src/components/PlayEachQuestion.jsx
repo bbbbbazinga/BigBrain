@@ -4,6 +4,11 @@ import {
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
+
+import {
+  ListItem, ListItemText, ListItemSecondaryAction, Checkbox,
+} from '@material-ui/core';
+
 import API from '../helper/api';
 
 // Each question component, where we can edit or delete
@@ -216,11 +221,23 @@ function PlayEachQuestion({ playerId }) {
                                 {
                                   curQ.answers.map((each, index) => {
                                     if (each.answer !== '') {
+                                      const labelId = `answer ${each}`;
                                       return (
-                                        <div className="Each-answer">
-                                          <span>{each.answer}</span>
-                                          <input type="checkbox" checked={check[index]} onChange={(e) => changeCheck(e, index, curQ.type)} />
-                                        </div>
+                                        // <div className="Each-answer">
+                                        //   <span>{each.answer}</span>
+                                        // <input type="checkbox" checked={check[index]} />
+                                        // </div>
+                                        <ListItem className="Each-answer" key={each} button>
+                                          <ListItemText color="secondary" id={labelId} primary={each.answer} />
+                                          <ListItemSecondaryAction>
+                                            <Checkbox
+                                              edge="end"
+                                              onChange={(e) => changeCheck(e, index, curQ.type)}
+                                              checked={check[index]}
+                                              inputProps={{ 'aria-labelledby': labelId }}
+                                            />
+                                          </ListItemSecondaryAction>
+                                        </ListItem>
                                       );
                                     }
                                     return (<div />);

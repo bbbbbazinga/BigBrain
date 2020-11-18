@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 import API from '../helper/api';
 
 // page to login
@@ -40,7 +41,7 @@ function Login() {
       <br />
       <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
       <br />
-      <button type="submit" form="loginForm" onClick={loginForm}>Login</button>
+      <Button color="primary" type="submit" form="loginForm" onClick={loginForm}>Login</Button>
     </form>
   );
 }
