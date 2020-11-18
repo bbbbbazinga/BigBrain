@@ -1,6 +1,6 @@
 [
     {
-        "question": "which city is the capital of China",
+        "question": "Which city is the capital of China",
         "type": "Single select",
         "timeLimit": 10,
         "points": 10,
@@ -29,46 +29,6 @@
             },
             {
                 "id": 5,
-                "answer": "=",
-                "correct": false
-            },
-            {
-                "id": 6,
-                "answer": "",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "which city is the capital of China",
-        "type": "single select",
-        "timeLimit": 10,
-        "points": 10,
-        "image": "",
-        "video": "",
-        "answers": [
-            {
-                "id": 1,
-                "answer": "Beijing",
-                "correct": true
-            },
-            {
-                "id": 2,
-                "answer": "Shanghai",
-                "correct": false
-            },
-            {
-                "id": 3,
-                "answer": "Tianjin",
-                "correct": false
-            },
-            {
-                "id": 4,
-                "answer": "",
-                "correct": false
-            },
-            {
-                "id": 5,
                 "answer": "",
                 "correct": false
             },
@@ -80,8 +40,8 @@
         ]
     },
     {
-        "question": "which city is the capital of Hei Longjiang",
-        "type": "single select",
+        "question": "Which city is the capital of Hei Longjiang",
+        "type": "Single select",
         "timeLimit": 10,
         "points": 10,
         "image": "",
@@ -120,8 +80,8 @@
         ]
     },
     {
-        "question": "which color is #000",
-        "type": "single select",
+        "question": "Which color is #000",
+        "type": "Single select",
         "timeLimit": 10,
         "points": 10,
         "image": "",
@@ -155,6 +115,86 @@
             {
                 "id": 6,
                 "answer": "",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which state of Australia is Adelaide in?",
+        "type": "Single select",
+        "timeLimit": 10,
+        "points": 10,
+        "image": "",
+        "video": "",
+        "answers": [
+            {
+                "id": 1,
+                "answer": "NSW",
+                "correct": false
+            },
+            {
+                "id": 2,
+                "answer": "WA",
+                "correct": false
+            },
+            {
+                "id": 3,
+                "answer": "SA",
+                "correct": true
+            },
+            {
+                "id": 4,
+                "answer": "VIC",
+                "correct": false
+            },
+            {
+                "id": 5,
+                "answer": "",
+                "correct": false
+            },
+            {
+                "id": 6,
+                "answer": "",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "question": "Which day is the boxing day in Australia?",
+        "type": "Single select",
+        "timeLimit": 10,
+        "points": 10,
+        "image": "",
+        "video": "",
+        "answers": [
+            {
+                "id": 1,
+                "answer": "12.24",
+                "correct": false
+            },
+            {
+                "id": 2,
+                "answer": "12.25",
+                "correct": false
+            },
+            {
+                "id": 3,
+                "answer": "12.26",
+                "correct": true
+            },
+            {
+                "id": 4,
+                "answer": "12.27",
+                "correct": false
+            },
+            {
+                "id": 5,
+                "answer": "11.27",
+                "correct": false
+            },
+            {
+                "id": 6,
+                "answer": "1.1",
                 "correct": false
             }
         ]

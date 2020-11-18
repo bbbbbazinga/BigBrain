@@ -6,6 +6,8 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
+import { AppBar } from '@material-ui/core';
+import deepPurple from '@material-ui/core/colors/deepPurple';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -16,11 +18,13 @@ import PlayJoin from './pages/PlayJoin';
 import StoreProvider from './utils/store';
 
 function App() {
+  const bgcColor = deepPurple[400];
+  // const textColor = deepPurple[50];
   return (
     <StoreProvider>
       <Router>
         <div>
-          <nav>
+          <AppBar position="static" color={bgcColor}>
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -35,7 +39,23 @@ function App() {
                 <Link to="/dashboard">Dashboard</Link>
               </li>
             </ul>
-          </nav>
+          </AppBar>
+          {/* <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/register">Register</Link>
+              </li>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            </ul>
+          </nav> */}
 
           <Switch>
             <Route exact path="/">

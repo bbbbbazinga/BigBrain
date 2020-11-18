@@ -64,7 +64,6 @@ function PopUpModal() {
       },
     })
       .then(() => {
-        console.log('ok');
         setOpen(true);
         api.get(`admin/quiz/${quizId}`, {
           headers: {
