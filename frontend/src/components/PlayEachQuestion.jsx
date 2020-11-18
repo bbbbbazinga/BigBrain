@@ -209,7 +209,7 @@ function PlayEachQuestion({ playerId }) {
                                   : (
                                     <p>
                                       Image:
-                                      {curQ.image}
+                                      <img src={curQ.image} alt="thumbnail" />
                                     </p>
                                   )
                               }
