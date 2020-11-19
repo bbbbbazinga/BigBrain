@@ -1,0 +1,29 @@
+.createGame {
+    display: flex;
+}
+
+.createInput {
+    width: 70%;
+    padding-left: 5px;
+}
+
+.createBTN {
+    /* width: 20%; */
+    height: 40px;
+    color: #fff;
+    font: bolder 15px 'Josefin Sans';
+    background: purple;
+    box-shadow: 2px 2px 5px rgb(233, 250, 224);
+    border-radius: 4px;
+    padding: 0 5px;
+}
+
+.createBTN:hover {
+    cursor: pointer;
+    color: #312e37;
+    background-color: white;
+}
+
+.createIT {
+    margin-left: 10px;
+}

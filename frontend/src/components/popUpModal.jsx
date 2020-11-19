@@ -29,8 +29,11 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
     width: 400,
+    color: 'purple',
+    lineHeight: '30px',
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: '2px solid purple',
+    borderRadius: '10px',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -53,7 +56,7 @@ function PopUpModal() {
 
   const handleOpen = (event) => {
     event.preventDefault();
-    const quizId = event.target.parentNode.parentNode.querySelector('.game-id').textContent;
+    const quizId = event.target.parentNode.parentNode.parentNode.querySelector('.game-id').textContent;
     // get the current game's id
     localStorage.setItem('curQuizId', quizId);
 
@@ -97,7 +100,7 @@ function PopUpModal() {
 
   const stopOp = async (event) => {
     event.preventDefault();
-    const quizId = event.target.parentNode.parentNode.querySelector('.game-id').textContent;
+    const quizId = event.target.parentNode.parentNode.parentNode.querySelector('.game-id').textContent;
     const stopG = window.confirm('Are you sure to stop the game');
     if (stopG) {
       localStorage.removeItem('curQuizId');
@@ -121,7 +124,7 @@ function PopUpModal() {
   // to advance question
   const nextQ = (event) => {
     event.preventDefault();
-    const quizId = event.target.parentNode.parentNode.querySelector('.game-id').textContent;
+    const quizId = event.target.parentNode.parentNode.parentNode.querySelector('.game-id').textContent;
 
     api.post(`admin/quiz/${quizId}/advance`, {
       headers: {
@@ -137,20 +140,22 @@ function PopUpModal() {
 
   const body = (
     <div className={classes.paper} style={modalStyle}>
-      <button type="button" onClick={handleClose}>X</button>
+      <button className="copyBTN" type="button" onClick={handleClose}>X</button>
       <h2 id="sessionTitle">Session ID:</h2>
       <p id="sessionID">{active}</p>
       <h2 id="URLtitle">URL:</h2>
       <p id="urlLink">{url}</p>
-      <button type="button" onClick={clickToCopy}>Copy Link</button>
+      <button className="copyBTN" type="button" onClick={clickToCopy}>Copy Link</button>
     </div>
   );
 
   return (
-    <div>
-      <button type="button" onClick={handleOpen}>Start to Play</button>
-      <button type="button" onClick={stopOp}>Stop the Game</button>
-      <button type="button" onClick={nextQ}>Advance</button>
+    <div className="popUp">
+      <div className="options">
+        <button className="gameOptions" type="button" onClick={handleOpen}>Start to Play</button>
+        <button className="gameOptions" type="button" onClick={stopOp}>Stop the Game</button>
+        <button className="gameOptions" type="button" onClick={nextQ}>Advance</button>
+      </div>
       <Modal
         open={open}
         onClose={handleClose}

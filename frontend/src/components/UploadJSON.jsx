@@ -9,6 +9,15 @@ export default function UploadJSON({ quizId }) {
   const query = `Bearer ${token}`;
   const context = useContext(StoreContext);
   const { eachGame: [eachGame, setEachGame] } = context;
+
+  const openSession = () => {
+    const div = document.getElementById('uploadFile');
+    if (div.style.display === 'none') {
+      div.style.display = 'inline-block';
+    } else {
+      div.style.display = 'none';
+    }
+  };
   const uploadFile = () => {
     const file = document.getElementById('fileToUpload');
     const UploadF = file.files;
@@ -55,9 +64,12 @@ export default function UploadJSON({ quizId }) {
   };
 
   return (
-    <div>
-      <input type="file" id="fileToUpload" accept=".json" />
-      <button type="button" onClick={uploadFile}>Upload Questions</button>
+    <div className="uploadJSONDIV">
+      <button className="uploadBTN" type="button" onClick={openSession}>Upload Questions</button>
+      <div id="uploadFile">
+        <input type="file" id="fileToUpload" accept=".json" />
+        <button className="uploadBTN" type="button" onClick={uploadFile}>Upload</button>
+      </div>
     </div>
   );
 }

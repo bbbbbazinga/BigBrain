@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,50 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+ul {
+  display: flex;
+  background: url('./bgc/bgc4.png');
+  background-size: 100% 100%;
+  padding: 0 50px;
+}
+
+li {
+  flex:1;
+  list-style: none;
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none
+}
+
+a:hover {
+  color: #000;
+}
+
+button {
+  font-family: arial, sans-serif;
+  border: none; 
+  outline: none;
+}
+
+.content {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.logoutBTN {
+  float: right;
+  height: 40px;
+  width: 25%;
+  background: url('./bgc/bgc4.png');
+  color: #fff;
+  font: bolder 15px 'Josefin Sans';
+  padding: 15px;
 }

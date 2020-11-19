@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import API from '../helper/api';
 import { StoreContext } from '../utils/store';
 import PopUpModal from './popUpModal';
+import '../css/eachGame.css';
 
 // Each game component, where we can edit or delete
 function EachGame({
@@ -72,16 +73,14 @@ function EachGame({
   });
 
   return (
-    <div style={{ border: '1px solid black', margin: '10px 0' }}>
-      <button type="button" onClick={editOp}>Edit</button>
-      <button type="button" onClick={deleteOp}>Delete</button>
-      <PopUpModal active={active} />
-      <p className="game-id">
-        {id}
-      </p>
-      <p>
-        Game Name:
+    <div className="eachGameShow">
+      <button className="btnEach" type="button" onClick={deleteOp}>Delete</button>
+      <button className="btnEach" type="button" onClick={editOp}>Edit</button>
+      <h2>
         {title}
+      </h2>
+      <p className="game-id" style={{ display: 'none' }}>
+        {id}
       </p>
       <p>
         Number of questions:
@@ -96,6 +95,7 @@ function EachGame({
           ? <div />
           : <img src={thumbnail} alt="thumbnail" />
       }
+      <PopUpModal active={active} />
     </div>
   );
 }

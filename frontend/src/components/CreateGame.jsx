@@ -56,10 +56,10 @@ function CreateGame() {
 
   return (
     <div>
-      <button type="button" onClick={showInput}>Create a New Game</button>
+      <button className="createBTN" type="button" onClick={showInput}>Create a New Game</button>
       <div className="createGame" style={{ display: 'none' }}>
-        <input type="text" placeholder="New Game Name" value={game} onChange={(event) => setGame(event.target.value)} />
-        <button type="button" onClick={create}>Create</button>
+        <input className="createInput" type="text" placeholder="New Game Name" value={game} onChange={(event) => setGame(event.target.value)} />
+        <button className="createBTN createIT" type="button" onClick={create}>Create</button>
       </div>
     </div>
   );

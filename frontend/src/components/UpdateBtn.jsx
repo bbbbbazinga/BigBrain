@@ -56,7 +56,7 @@ function UpdateBtn({ quizId }) {
   };
 
   return (
-    <div>
+    <div className="updateDIV">
       <button type="button" onClick={showInput}>Update</button>
       <div className="name-thumbnail" style={{ display: 'none', flexDirection: 'column' }}>
         <div>

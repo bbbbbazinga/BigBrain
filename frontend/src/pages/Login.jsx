@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button } from '@material-ui/core';
 import API from '../helper/api';
+import '../css/Login.css';
 
 // page to login
 function Login() {
@@ -41,7 +41,7 @@ function Login() {
       <br />
       <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
       <br />
-      <Button color="primary" type="submit" form="loginForm" onClick={loginForm}>Login</Button>
+      <button className="btn" type="submit" form="loginForm" onClick={loginForm}>Login</button>
     </form>
   );
 }

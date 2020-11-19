@@ -1,8 +1,6 @@
 import { React, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Checkbox, Button, MenuItem, Select, FormControl, InputLabel,
-} from '@material-ui/core';
+import { Checkbox } from '@material-ui/core';
 import { StoreContext } from '../utils/store';
 import API from '../helper/api';
 import imageToDataUrl from '../helper/imageToDataUrl';
@@ -106,17 +104,21 @@ function CreateQuestion({ quizId }) {
 
   return (
     <div>
-      <button type="button" onClick={showInput}>Create a New Question</button>
+      <button className="createQBTN" type="button" onClick={showInput}>Create a New Question</button>
       <UploadJSON quizId={quizId} />
-      <div className="createQuestion" style={{ display: 'none', flexDirection: 'column' }}>
-        Question:
-        <input type="text" placeholder="Question Description" value={question} onChange={(e) => setQuestion(e.target.value)} />
-        Question Type:
-        {/* <select onChange={(e) => setType(e.target.value)}>
-          <option value="Single select">Single select</option>
-          <option value="Multi-select">Multi-select</option>
-        </select> */}
-        <FormControl variant="filled">
+      <form className="createQuestion" style={{ display: 'none' }}>
+        <label htmlFor="question">
+          Question:
+          <input id="question" type="text" placeholder="Question Description" value={question} onChange={(e) => setQuestion(e.target.value)} />
+        </label>
+        <label htmlFor="questionTypeSel">
+          Question Type:
+          <select id="questionTypeSel" onChange={(e) => setType(e.target.value)}>
+            <option value="Single select">Single select</option>
+            <option value="Multi-select">Multi-select</option>
+          </select>
+        </label>
+        {/* <FormControl variant="filled">
           <InputLabel id="filled-label">Question Type</InputLabel>
           <Select
             labelId="qtype-select-label"
@@ -125,62 +127,82 @@ function CreateQuestion({ quizId }) {
             <MenuItem value="Single select">Single select</MenuItem>
             <MenuItem value="Multi-select">Multi-select</MenuItem>
           </Select>
-        </FormControl>
-        Time Limit:
-        <input type="number" placeholder="End with second" value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} />
-        Points:
-        <input type="number" placeholder="Points" value={points} onChange={(e) => setPoints(e.target.value)} />
-        Upload image:
-        <input type="file" placeholder="Select a image" onChange={chooseImage} />
-        YouTube Link:
-        <input type="text" placeholder="Input a video URL" value={video} onChange={(e) => setVideo(e.target.value)} />
-        Answer Box:
+        </FormControl> */}
+        <label htmlFor="timeLimit">
+          Time Limit:
+          <input id="timeLimit" type="number" placeholder="End with second" value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} />
+        </label>
+        <label htmlFor="points">
+          Points:
+          <input id="points" type="number" placeholder="Points" value={points} onChange={(e) => setPoints(e.target.value)} />
+        </label>
+        <label htmlFor="UploadIMG">
+          Upload image:
+          <input id="UploadIMG" type="file" placeholder="Select a image" onChange={chooseImage} />
+        </label>
+        <label htmlFor="YouTubeLink">
+          YouTube Link:
+          <input id="YouTubeLink" type="text" placeholder="Input a video URL" value={video} onChange={(e) => setVideo(e.target.value)} />
+        </label>
+        <p>Answer Box:</p>
         <div className="answerDiv">
-          <input type="text" placeholder="Add answer1" value={answers[0]} onChange={(e) => changeAnswer(e, 0)} />
-          <Checkbox
-            value={checks[0]}
-            onChange={(e) => changeCheck(e, 0)}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          {/* <input type="checkbox" value={checks[0]} onChange={(e) => changeCheck(e, 0)} /> */}
-          <input type="text" placeholder="Add answer2" value={answers[1]} onChange={(e) => changeAnswer(e, 1)} />
-          {/* <input type="checkbox" value={checks[1]} onChange={(e) => changeCheck(e, 1)} /> */}
-          <Checkbox
-            value={checks[1]}
-            onChange={(e) => changeCheck(e, 1)}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          <input type="text" placeholder="Add answer3 (optional)" value={answers[2]} onChange={(e) => changeAnswer(e, 2)} />
-          {/* <input type="checkbox" value={checks[2]} onChange={(e) => changeCheck(e, 2)} /> */}
-          <Checkbox
-            value={checks[2]}
-            onChange={(e) => changeCheck(e, 2)}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          <input type="text" placeholder="Add answer4 (optional)" value={answers[3]} onChange={(e) => changeAnswer(e, 3)} />
-          {/* <input type="checkbox" value={checks[3]} onChange={(e) => changeCheck(e, 3)} /> */}
-          <Checkbox
-            value={checks[3]}
-            onChange={(e) => changeCheck(e, 3)}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          <input type="text" placeholder="Add answer5 (optional)" value={answers[4]} onChange={(e) => changeAnswer(e, 4)} />
-          <Checkbox
-            value={checks[4]}
-            onChange={(e) => changeCheck(e, 4)}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          {/* <input type="checkbox" value={checks[4]} onChange={(e) => changeCheck(e, 4)} /> */}
-          <input type="text" placeholder="Add answer6 (optional)" value={answers[5]} onChange={(e) => changeAnswer(e, 5)} />
-          <Checkbox
-            value={checks[5]}
-            onChange={(e) => changeCheck(e, 5)}
-            inputProps={{ 'aria-label': 'secondary checkbox' }}
-          />
-          {/* <input type="checkbox" value={checks[5]} onChange={(e) => changeCheck(e, 5)} /> */}
+          <label htmlFor="check0">
+            <input type="text" placeholder="Add answer1" value={answers[0]} onChange={(e) => changeAnswer(e, 0)} />
+            <Checkbox
+              id="check0"
+              value={checks[0]}
+              onChange={(e) => changeCheck(e, 0)}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </label>
+          <label htmlFor="check1">
+            <input type="text" placeholder="Add answer2" value={answers[1]} onChange={(e) => changeAnswer(e, 1)} />
+            <Checkbox
+              id="check1"
+              value={checks[1]}
+              onChange={(e) => changeCheck(e, 1)}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </label>
+          <label htmlFor="check2">
+            <input type="text" placeholder="Add answer3" value={answers[2]} onChange={(e) => changeAnswer(e, 2)} />
+            <Checkbox
+              id="check2"
+              value={checks[2]}
+              onChange={(e) => changeCheck(e, 2)}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </label>
+          <label htmlFor="check3">
+            <input type="text" placeholder="Add answer4" value={answers[3]} onChange={(e) => changeAnswer(e, 3)} />
+            <Checkbox
+              id="check3"
+              value={checks[3]}
+              onChange={(e) => changeCheck(e, 3)}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </label>
+          <label htmlFor="check4">
+            <input type="text" placeholder="Add answer5" value={answers[4]} onChange={(e) => changeAnswer(e, 4)} />
+            <Checkbox
+              id="check4"
+              value={checks[4]}
+              onChange={(e) => changeCheck(e, 4)}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </label>
+          <label htmlFor="check5">
+            <input type="text" placeholder="Add answer6" value={answers[5]} onChange={(e) => changeAnswer(e, 5)} />
+            <Checkbox
+              id="check5"
+              value={checks[5]}
+              onChange={(e) => changeCheck(e, 5)}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </label>
         </div>
-        <Button color="secondary" type="button" onClick={addQuestion}>Add</Button>
-      </div>
+        <button className="uploadBTN" type="button" onClick={addQuestion}>Add</button>
+      </form>
     </div>
   );
 }

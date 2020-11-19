@@ -50,17 +50,17 @@ function EachQuestion({
   };
 
   return (
-    <div style={{ border: '1px solid black', margin: '10px 0' }}>
-      <button type="button" onClick={editOp}>Edit</button>
-      <button type="button" onClick={deleteOp}>Delete</button>
-      <p>
+    <div className="eachQuestionShow">
+      <button className="btnEach" type="button" onClick={deleteOp}>Delete</button>
+      <button className="btnEach" type="button" onClick={editOp}>Edit</button>
+      {/* <p>
         Game Id:
         {quizId}
       </p>
       <p className="question-id">
         Question Id:
         {questionId}
-      </p>
+      </p> */}
       <p>
         Question:
         {question}

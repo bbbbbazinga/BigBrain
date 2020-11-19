@@ -46,7 +46,7 @@ function Register() {
       <br />
       <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
       <br />
-      <button type="submit" form="registerForm" onClick={submitForm}>Register</button>
+      <button className="btn" type="submit" form="registerForm" onClick={submitForm}>Register</button>
     </form>
   );
 }

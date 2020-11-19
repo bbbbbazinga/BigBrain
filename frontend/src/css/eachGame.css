@@ -1,0 +1,58 @@
+.eachGameShow {
+    width: 70%;
+    line-height: 30px;
+    color: #fff;
+    font-weight: bold;
+    background: url('../bgc/bgc1.jpg');
+    background-size: 100% 100%;
+    /* border: 2px solid purple; */
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(186, 238, 237);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.btnEach, .gameOptions {
+    float: right;
+    margin: 30px 0 10px;
+    text-align: center;
+    color: purple;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px #fff;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.options {
+    display: flex;
+    justify-content: right;
+}
+
+.gameOptions {
+    flex: 1;
+}
+
+.btnEach:hover,
+.gameOptions:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #000;
+}
+
+.copyBTN {
+    float: right;
+    color: #fff;
+    font: bolder 15px 'Josefin Sans';
+    background: purple;
+    box-shadow: 2px 2px 5px rgb(233, 250, 224);
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.copyBTN:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+}
+

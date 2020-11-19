@@ -7,7 +7,7 @@ import API from '../helper/api';
 import { StoreContext } from '../utils/store';
 import ShowEachQuestion from '../components/ShowEachQuestion';
 import EditEachQuestion from '../components/EditEachQuestion';
-
+import '../css/EditQuestion.css';
 // page to edit a particular question,
 // click the Edit btn to show the "edit part"
 // click the UnEdit btn to show the "basic information of the question"
@@ -43,15 +43,15 @@ function EditQuestion() {
   }, [setQuestion, gameid, questionid]);
 
   return (
-    <div>
+    <div className="editQ content">
       {/* {`EditGame ${gameid} ${questionid}`}
       <br />
       {question.question}
       <br /> */}
-      {eachGame.name}
+      <LogoutBtn />
+      <h2>{eachGame.name}</h2>
       <br />
       <button type="button" onClick={() => history.goBack()}>Back</button>
-      <LogoutBtn />
       <button type="button" onClick={() => setToggle(!toggle)}>{toggle === true ? 'Edit' : 'UnEdit'}</button>
       {
       toggle === true

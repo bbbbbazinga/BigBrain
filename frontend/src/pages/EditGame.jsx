@@ -6,6 +6,7 @@ import CreateQuestion from '../components/CreateQuestion';
 import API from '../helper/api';
 import { StoreContext } from '../utils/store';
 import EachQuestion from '../components/EachQuestion';
+import '../css/EditGame.css';
 
 // page to show all the questions in a particular
 // and choose which question to be edited or deleted
@@ -35,12 +36,14 @@ function EditGame() {
   }, [setEachGame, gameid]);
 
   return (
-    <div>
-      <button type="button" onClick={() => history.push('/dashboard')}>Back</button>
-      <LogoutBtn />
-      <UpdateBtn
-        quizId={gameid}
-      />
+    <div className="content">
+      <div className="topCreate">
+        <LogoutBtn />
+        <button type="button" onClick={() => history.push('/dashboard')}>Back</button>
+        <UpdateBtn
+          quizId={gameid}
+        />
+      </div>
       <CreateQuestion
         quizId={gameid}
       />
