@@ -48,11 +48,14 @@ function EditQuestion() {
       <br />
       {question.question}
       <br /> */}
-      <LogoutBtn />
-      <h2>{eachGame.name}</h2>
-      <br />
-      <button type="button" onClick={() => history.goBack()}>Back</button>
-      <button type="button" onClick={() => setToggle(!toggle)}>{toggle === true ? 'Edit' : 'UnEdit'}</button>
+      <div className="topCreate">
+        <LogoutBtn />
+        <button type="button" onClick={() => history.goBack()}>Back</button>
+      </div>
+      <div className="subHead">
+        <h2>{eachGame.name}</h2>
+        <button className="editAction" type="button" onClick={() => setToggle(!toggle)}>{toggle === true ? 'Edit' : 'UnEdit'}</button>
+      </div>
       {
       toggle === true
         ? (

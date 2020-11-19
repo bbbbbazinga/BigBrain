@@ -5,9 +5,7 @@ import {
 } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  ListItem, ListItemText, ListItemSecondaryAction, Checkbox,
-} from '@material-ui/core';
+import { Checkbox } from '@material-ui/core';
 
 import API from '../helper/api';
 
@@ -173,7 +171,7 @@ function PlayEachQuestion({ playerId }) {
   }, [check, playerId, curQid]);
 
   return (
-    <div>
+    <div className="content">
       {
         curQid === ''
           ? <div>Waiting for start...</div>
@@ -183,7 +181,7 @@ function PlayEachQuestion({ playerId }) {
                 result.length === 0
                   // show each question
                   ? (
-                    <div style={{ border: '1px solid black', margin: '10px 0' }}>
+                    <div className="eachGamePlay">
                       {
                         JSON.stringify(curQ) === JSON.stringify({})
                           ? <div />
@@ -223,21 +221,15 @@ function PlayEachQuestion({ playerId }) {
                                     if (each.answer !== '') {
                                       const labelId = `answer ${each}`;
                                       return (
-                                        // <div className="Each-answer">
-                                        //   <span>{each.answer}</span>
-                                        // <input type="checkbox" checked={check[index]} />
-                                        // </div>
-                                        <ListItem className="Each-answer" key={each} button>
-                                          <ListItemText color="secondary" id={labelId} primary={each.answer} />
-                                          <ListItemSecondaryAction>
-                                            <Checkbox
-                                              edge="end"
-                                              onChange={(e) => changeCheck(e, index, curQ.type)}
-                                              checked={check[index]}
-                                              inputProps={{ 'aria-labelledby': labelId }}
-                                            />
-                                          </ListItemSecondaryAction>
-                                        </ListItem>
+                                        <div className="Each-answer">
+                                          <Checkbox
+                                            edge="end"
+                                            onChange={(e) => changeCheck(e, index, curQ.type)}
+                                            checked={check[index]}
+                                            inputProps={{ 'aria-labelledby': labelId }}
+                                          />
+                                          <span className="answerSpan">{each.answer}</span>
+                                        </div>
                                       );
                                     }
                                     return (<div />);
@@ -261,13 +253,13 @@ function PlayEachQuestion({ playerId }) {
                   )
                   // show the key results of the player
                   : (
-                    <div>
-                      <p>You have finished all the questions, below is your performance:</p>
+                    <div className="eachResultShow">
+                      <h3>You have finished all the questions, below is your performance:</h3>
                       {
-                        result.map((each, index) => <div>{`Question${index + 1}: ${each} (Points: ${points[index]})`}</div>)
+                        result.map((each, index) => <div>{`Q${index + 1}: ${each} (Points: ${points[index]})`}</div>)
                       }
-                      <p>{`Correct Rate: ${(correctRate * 100).toFixed(2)}%`}</p>
-                      <p>{`Total Points: ${totalPoints}`}</p>
+                      <div>{`Correct Rate: ${(correctRate * 100).toFixed(2)}%`}</div>
+                      <div>{`Total Points: ${totalPoints}`}</div>
                     </div>
                   )
               }

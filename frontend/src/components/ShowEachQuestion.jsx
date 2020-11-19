@@ -9,7 +9,7 @@ function ShowEachQuestion() {
   const { question: [question] } = context;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div className="editEachQShow">
       <div>
         Question:
         {question.question}
@@ -28,7 +28,7 @@ function ShowEachQuestion() {
       </div>
       <div>
         Upload image:
-        <img src={question.image} alt="question" style={{ width: '150px', objectFit: 'contain' }} />
+        <img src={question.image} alt="questionImage" style={{ width: '150px', objectFit: 'contain' }} />
       </div>
       <div>
         YouTube Link:

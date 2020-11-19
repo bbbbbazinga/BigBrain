@@ -1,5 +1,8 @@
 .createGame {
     display: flex;
+    justify-content: space-between;
+    width: 70%;
+    line-height: 70px;
 }
 
 .createInput {
@@ -25,5 +28,6 @@
 }
 
 .createIT {
-    margin-left: 10px;
+    margin: 15px 0 15px 10px;
+    width: 20%;
 }

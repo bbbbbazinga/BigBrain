@@ -16,7 +16,7 @@ function CreateGame() {
   const showInput = (event) => {
     event.preventDefault();
     const createDiv = document.querySelector('.createGame');
-    createDiv.style.display = createDiv.style.display === 'none' ? 'block' : 'none';
+    createDiv.style.display = createDiv.style.display === 'none' ? 'flex' : 'none';
   };
 
   // create a new game
@@ -57,7 +57,7 @@ function CreateGame() {
   return (
     <div>
       <button className="createBTN" type="button" onClick={showInput}>Create a New Game</button>
-      <div className="createGame" style={{ display: 'none' }}>
+      <div className="createGame">
         <input className="createInput" type="text" placeholder="New Game Name" value={game} onChange={(event) => setGame(event.target.value)} />
         <button className="createBTN createIT" type="button" onClick={create}>Create</button>
       </div>

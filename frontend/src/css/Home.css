@@ -1,0 +1,31 @@
+.mainPage {
+    width: 80%;
+    height: 600px;
+    text-align: center;
+    background: url(../bgc/bgc7);
+    background-size: 100% 100%;
+    color: #fff;
+    padding-top: 200px;
+    margin: 0 auto;
+}
+
+.mainPage h1, .BTN {
+    font-size: 40px;
+    line-height: 70px;
+}
+
+.BTN {
+    color: #fff;
+    /* height: 40px; */
+    line-height: 70px;
+    font: bolder 25px 'Josefin Sans';
+    border-radius: 5px;
+    background: transparent;
+    padding: 15px;
+}
+
+.BTN:hover {
+    cursor: pointer;
+    color: #312e37;
+    background-color: white;
+}

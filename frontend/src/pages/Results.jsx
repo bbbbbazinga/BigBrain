@@ -5,6 +5,7 @@ import LogoutBtn from '../components/Logout';
 import API from '../helper/api';
 import BarChart from '../components/BarChart';
 // import EachResult from '../components/EachResult';
+import '../css/results.css';
 
 function Results() {
   const { active } = useParams();
@@ -102,7 +103,7 @@ function Results() {
       temp[i] = pair[i];
     }
     return (
-      <table>
+      <table className="resultTable">
         <tr>
           <th>Player Name</th>
           <th>Score</th>
@@ -120,7 +121,7 @@ function Results() {
   };
 
   return (
-    <div>
+    <div className="content">
       {
         update === 0
           ? <div />

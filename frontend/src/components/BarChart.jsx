@@ -89,14 +89,7 @@ function BarChart({ correctPer, avgTime }) {
   };
 
   return (
-    <div style={{
-      position: 'relative',
-      width: '50%',
-      display: 'flex',
-      flexDirection: 'column',
-      margin: '0 auto',
-    }}
-    >
+    <div className="resultChart">
       <Bar
         data={correctPerState}
         options={correctPerOptions}

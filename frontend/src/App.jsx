@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { AppBar } from '@material-ui/core';
 import deepPurple from '@material-ui/core/colors/deepPurple';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -59,7 +60,7 @@ function App() {
 
           <Switch>
             <Route exact path="/">
-              Home
+              <Home />
             </Route>
             <Route exact path="/login">
               <Login />

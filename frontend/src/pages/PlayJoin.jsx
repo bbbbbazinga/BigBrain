@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import API from '../helper/api';
 import PlayEachQuestion from '../components/PlayEachQuestion';
+import '../css/PlayJoin.css';
 
 function PlayJoin() {
   const { active } = useParams();
@@ -42,7 +43,7 @@ function PlayJoin() {
         <br />
         <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
         <br />
-        <button type="submit" form="nameForm" onClick={nameForm}>Play</button>
+        <button className="btn" type="submit" form="nameForm" onClick={nameForm}>Play</button>
       </form>
       {
         playerId === 0
