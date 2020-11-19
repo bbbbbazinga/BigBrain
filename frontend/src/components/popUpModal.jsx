@@ -109,11 +109,16 @@ function PopUpModal() {
           },
         });
       } catch (err) {
+        if (active === '') {
+          alert(err);
+        }
         console.log(err);
       }
-      const turnToRes = window.confirm('Would you like to view the results?');
-      if (turnToRes) {
-        history.push(`/results/${active}`);
+      if (active !== '') {
+        const turnToRes = window.confirm('Would you like to view the results?');
+        if (turnToRes) {
+          history.push(`/results/${active}`);
+        }
       }
     }
   };
