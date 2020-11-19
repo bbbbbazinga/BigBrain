@@ -187,17 +187,19 @@ function PlayEachQuestion({ playerId }) {
                           ? <div />
                           : (
                             <div>
+                              <p style={{ float: 'right', fontSize: '30px' }}>
+                                {`Time Left: ${time}`}
+                              </p>
                               <p>
-                                {`(${curQ.type}) Question:`}
-                                {curQ.question}
+                                {`(${curQ.type}) Question: ${curQ.question}`}
                               </p>
                               {
                                 curQ.video === ''
                                   ? <div />
                                   : (
                                     <p>
-                                      Video:
-                                      {curQ.video}
+                                      {'Video: '}
+                                      <a href={curQ.video} target="_blank" rel="noreferrer">Click here</a>
                                     </p>
                                   )
                               }
@@ -205,16 +207,9 @@ function PlayEachQuestion({ playerId }) {
                                 curQ.image === ''
                                   ? <div />
                                   : (
-                                    <p>
-                                      Image:
-                                      <img src={curQ.image} alt="thumbnail" />
-                                    </p>
+                                    <img src={curQ.image} alt="thumbnail" />
                                   )
                               }
-                              <p>
-                                Time left:
-                                {time}
-                              </p>
                               <div className="answerDiv">
                                 {
                                   curQ.answers.map((each, index) => {

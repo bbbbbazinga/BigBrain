@@ -108,11 +108,11 @@ function CreateQuestion({ quizId }) {
       <UploadJSON quizId={quizId} />
       <form className="createQuestion" style={{ display: 'none' }}>
         <label htmlFor="question">
-          Question:
+          <span style={{ width: '30%' }}>Question:</span>
           <input id="question" type="text" placeholder="Question Description" value={question} onChange={(e) => setQuestion(e.target.value)} />
         </label>
         <label htmlFor="questionTypeSel">
-          Question Type:
+          <span style={{ width: '30%' }}>Question Type:</span>
           <select id="questionTypeSel" onChange={(e) => setType(e.target.value)}>
             <option value="Single select">Single select</option>
             <option value="Multi-select">Multi-select</option>
@@ -129,19 +129,19 @@ function CreateQuestion({ quizId }) {
           </Select>
         </FormControl> */}
         <label htmlFor="timeLimit">
-          Time Limit:
+          <span style={{ width: '30%' }}>Time Limit (s):</span>
           <input id="timeLimit" type="number" placeholder="End with second" value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} />
         </label>
         <label htmlFor="points">
-          Points:
+          <span style={{ width: '30%' }}>Points:</span>
           <input id="points" type="number" placeholder="Points" value={points} onChange={(e) => setPoints(e.target.value)} />
         </label>
         <label htmlFor="UploadIMG">
-          Upload image:
+          <span style={{ width: '30%' }}>Upload Image:</span>
           <input id="UploadIMG" type="file" placeholder="Select a image" onChange={chooseImage} />
         </label>
         <label htmlFor="YouTubeLink">
-          YouTube Link:
+          <span style={{ width: '30%' }}>YouTube Link:</span>
           <input id="YouTubeLink" type="text" placeholder="Input a video URL" value={video} onChange={(e) => setVideo(e.target.value)} />
         </label>
         <p>Answer Box:</p>

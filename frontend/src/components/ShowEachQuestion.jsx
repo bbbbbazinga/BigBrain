@@ -11,52 +11,41 @@ function ShowEachQuestion() {
   return (
     <div className="editEachQShow">
       <div>
-        Question:
-        {question.question}
+        {`Question: ${question.question}`}
       </div>
       <div>
-        Question Type:
-        {question.type}
+        {`Question Type: ${question.type}`}
       </div>
       <div>
-        Time Limit:
-        {question.timeLimit}
+        {`Time Limit (s): ${question.timeLimit}`}
       </div>
       <div>
-        Points:
-        {question.points}
+        {`Points: ${question.points}`}
       </div>
       <div>
-        Upload image:
+        <p>Image:</p>
         <img src={question.image} alt="questionImage" style={{ width: '150px', objectFit: 'contain' }} />
       </div>
       <div>
-        YouTube Link:
-        {question.video}
+        {`YouTube Link: ${question.video}`}
       </div>
       <div>
-        Answer 1:
-        {question.answers[0].answer}
+        {`Answer 1: ${question.answers[0].answer}`}
       </div>
       <div>
-        Answer 2:
-        {question.answers[1].answer}
+        {`Answer 2: ${question.answers[1].answer}`}
       </div>
       <div>
-        Answer 3:
-        {question.answers[2].answer}
+        {`Answer 3: ${question.answers[2].answer}`}
       </div>
       <div>
-        Answer 4:
-        {question.answers[3].answer}
+        {`Answer 4: ${question.answers[3].answer}`}
       </div>
       <div>
-        Answer 5:
-        {question.answers[4].answer}
+        {`Answer 5: ${question.answers[4].answer}`}
       </div>
       <div>
-        Answer 6:
-        {question.answers[5].answer}
+        {`Answer 6: ${question.answers[5].answer}`}
       </div>
     </div>
   );

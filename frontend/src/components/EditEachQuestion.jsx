@@ -95,30 +95,30 @@ function EditEachQuestion({ quizId, questionId }) {
   return (
     <form className="editEachQ">
       <label htmlFor="editquestion">
-        Question:
+        <span style={{ width: '30%' }}>Question:</span>
         <input id="editquestion" type="text" placeholder="Question Description" value={question.question} onChange={(e) => changeContent(e, 'question')} />
       </label>
       <label htmlFor="editquestionTypeSel">
-        Question Type:
+        <span style={{ width: '30%' }}>Question Type:</span>
         <select id="editquestionTypeSel" defaultValue={question.type} onChange={(e) => changeContent(e, 'type')}>
           <option value="Single select">Single select</option>
           <option value="Multi-select">Multi-select</option>
         </select>
       </label>
       <label htmlFor="edittimeLimit">
-        Time Limit:
+        <span style={{ width: '30%' }}>Time Limit (s):</span>
         <input id="edittimeLimit" type="number" placeholder="End with second" value={question.timeLimit} onChange={(e) => changeContent(e, 'timeLimit')} />
       </label>
       <label htmlFor="editpoints">
-        Points:
+        <span style={{ width: '30%' }}>Points:</span>
         <input id="editpoints" type="number" placeholder="Points" value={question.points} onChange={(e) => changeContent(e, 'points')} />
       </label>
       <label htmlFor="editUploadIMG">
-        Upload image:
+        <span style={{ width: '30%' }}>Upload Image:</span>
         <input id="editUploadIMG" type="file" placeholder="Select a image" onChange={chooseImage} />
       </label>
       <label htmlFor="editYouTubeLink">
-        YouTube Link:
+        <span style={{ width: '30%' }}>YouTube Link:</span>
         <input id="editYouTubeLink" type="text" placeholder="Input a video URL" value={question.video} onChange={(e) => changeContent(e, 'video')} />
       </label>
       <p>Answer Box:</p>
