@@ -101,7 +101,7 @@ function PopUpModal() {
   const stopOp = async (event) => {
     event.preventDefault();
     const quizId = event.target.parentNode.parentNode.parentNode.querySelector('.game-id').textContent;
-    const stopG = window.confirm('Are you sure to stop the game');
+    const stopG = window.confirm('Are you sure to stop the game?');
     if (stopG) {
       localStorage.removeItem('curQuizId');
       try {
@@ -145,7 +145,7 @@ function PopUpModal() {
 
   const body = (
     <div className={classes.paper} style={modalStyle}>
-      <button className="copyBTN" type="button" onClick={handleClose}>X</button>
+      <button data-test-target="close-window" className="copyBTN" type="button" onClick={handleClose}>X</button>
       <h2 id="sessionTitle">Session ID:</h2>
       <p id="sessionID">{active}</p>
       <h2 id="URLtitle">URL:</h2>
@@ -157,8 +157,8 @@ function PopUpModal() {
   return (
     <div className="popUp">
       <div className="options">
-        <button className="gameOptions" type="button" onClick={handleOpen}>Start to Play</button>
-        <button className="gameOptions" type="button" onClick={stopOp}>Stop the Game</button>
+        <button data-test-target="start" className="gameOptions" type="button" onClick={handleOpen}>Start to Play</button>
+        <button data-test-target="end" className="gameOptions" type="button" onClick={stopOp}>Stop the Game</button>
         <button className="gameOptions" type="button" onClick={nextQ}>Advance</button>
       </div>
       <Modal

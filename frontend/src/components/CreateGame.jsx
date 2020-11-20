@@ -22,36 +22,40 @@ function CreateGame() {
   // create a new game
   const create = (event) => {
     event.preventDefault();
-    api.post('admin/quiz/new', {
-      body: JSON.stringify({
-        name: game,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: query,
-      },
-    })
-      .then(() => {
-        alert('Create successfully');
-        setGame('');
-        // below use get method again in order to use the "setGames",
-        // because post new quiz method doesn't return anything.
-        api.get('admin/quiz', {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: query,
-          },
-        })
-          .then((data) => {
-            setGames(data.quizzes);
-          })
-          .catch((err) => {
-            alert(err);
-          });
+    if (game === '') {
+      alert('Please input a game name.');
+    } else {
+      api.post('admin/quiz/new', {
+        body: JSON.stringify({
+          name: game,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: query,
+        },
       })
-      .catch((err) => {
-        alert(err);
-      });
+        .then(() => {
+          alert('Create successfully');
+          setGame('');
+          // below use get method again in order to use the "setGames",
+          // because post new quiz method doesn't return anything.
+          api.get('admin/quiz', {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: query,
+            },
+          })
+            .then((data) => {
+              setGames(data.quizzes);
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    }
   };
 
   return (
