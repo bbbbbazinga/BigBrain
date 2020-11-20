@@ -28,14 +28,14 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: 400,
+    width: '50%',
     color: 'purple',
     lineHeight: '30px',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid purple',
     borderRadius: '10px',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2, 2, 2),
   },
 }));
 // { active }
@@ -137,7 +137,7 @@ function PopUpModal() {
         Authorization: query,
       },
     })
-      .then(() => {})
+      .then(() => { })
       .catch((err) => alert(err));
   };
 
@@ -150,7 +150,7 @@ function PopUpModal() {
       <p id="sessionID">{active}</p>
       <h2 id="URLtitle">URL:</h2>
       <p id="urlLink">{url}</p>
-      <button className="copyBTN" type="button" onClick={clickToCopy}>Copy Link</button>
+      <button className="copyBTN CopyAction" type="button" onClick={clickToCopy}>Copy Link</button>
     </div>
   );
 

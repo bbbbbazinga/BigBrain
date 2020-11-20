@@ -38,3 +38,13 @@
 .editAction {
     width: 20%;
 }
+
+@media screen and (max-width: 595px) {
+    .subHead,
+    .editEachQShow, 
+    .editEachQ,
+    .editAction {
+        width: 100%;
+    }
+
+}

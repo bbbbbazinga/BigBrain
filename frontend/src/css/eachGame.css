@@ -56,3 +56,18 @@
     background-color: #000;
 }
 
+@media screen and (max-width: 870px) {
+    .eachGameShow {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .CopyAction {
+        width: 100%;
+    }
+
+    #urlLink {
+        font-size: 12px;
+    }
+
+}

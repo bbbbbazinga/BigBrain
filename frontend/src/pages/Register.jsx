@@ -34,18 +34,18 @@ function Register() {
 
   return (
     <form id="registerForm">
-      Email:
-      <br />
-      <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
-      <br />
-      Password:
-      <br />
-      <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-      <br />
-      Name:
-      <br />
-      <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-      <br />
+      <label htmlFor="email">
+        Email:
+        <input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+      </label>
+      <label htmlFor="password">
+        Password:
+        <input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+      </label>
+      <label htmlFor="name">
+        Name:
+        <input name="name" type="text" value={name} onChange={(event) => setName(event.target.value)} />
+      </label>
       <button className="btn" type="submit" form="registerForm" onClick={submitForm}>Register</button>
     </form>
   );

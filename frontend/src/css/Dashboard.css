@@ -31,3 +31,14 @@
     margin: 15px 0 15px 10px;
     width: 20%;
 }
+
+@media screen and (max-width: 870px) {
+    .createGame,
+    .createInput {
+        width: 100%;     
+    }
+
+    .createGame {
+        margin: 0 auto;
+    }
+}

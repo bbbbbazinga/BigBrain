@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the login component should match the snapshot 1`] = `"<form id=\\"loginForm\\">Email:<br/><input type=\\"text\\" name=\\"email\\" value=\\"\\"/><br/>Password:<br/><input type=\\"password\\" name=\\"password\\" value=\\"\\"/><br/><button class=\\"btn\\" type=\\"submit\\" form=\\"loginForm\\">Login</button></form>"`;

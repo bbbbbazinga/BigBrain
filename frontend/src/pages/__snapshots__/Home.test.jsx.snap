@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the login component should match the snapshot 1`] = `"<div class=\\"mainPage\\"><h1>Welcome!</h1><button class=\\"BTN B1\\" type=\\"button\\">Login</button><br/><button class=\\"BTN B2\\" type=\\"button\\">Register</button></div>"`;

@@ -45,6 +45,7 @@
 
 ul {
   display: flex;
+  justify-content: space-between;
   background: url('./bgc/bgc4.png');
   background-size: 100% 100%;
   padding: 0 50px;
@@ -87,4 +88,19 @@ button {
   color: #fff;
   font: bolder 15px 'Josefin Sans';
   padding: 15px;
+}
+
+@media screen and (max-width: 870px) {
+  .content {
+      width: 90%;
+      margin: 10px auto;
+  }
+
+  ul {
+    padding: 0 10px;
+  }
+
+  ul li {
+    font-size: 18px;
+  }
 }

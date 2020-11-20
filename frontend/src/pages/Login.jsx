@@ -33,14 +33,14 @@ function Login() {
 
   return (
     <form id="loginForm">
-      Email:
-      <br />
-      <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
-      <br />
-      Password:
-      <br />
-      <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-      <br />
+      <label htmlFor="email">
+        Email:
+        <input type="text" name="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+      </label>
+      <label htmlFor="password">
+        Password:
+        <input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+      </label>
       <button className="btn" type="submit" form="loginForm" onClick={loginForm}>Login</button>
     </form>
   );

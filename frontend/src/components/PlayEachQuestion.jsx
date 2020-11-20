@@ -174,7 +174,7 @@ function PlayEachQuestion({ playerId }) {
     <div className="content">
       {
         curQid === ''
-          ? <div>Waiting for start...</div>
+          ? <div className="waitingStart">Waiting for start...</div>
           : (
             <div>
               {
@@ -187,10 +187,10 @@ function PlayEachQuestion({ playerId }) {
                           ? <div />
                           : (
                             <div>
-                              <p style={{ float: 'right', fontSize: '30px' }}>
-                                {`Time Left: ${time}`}
+                              <p style={{ float: 'right', fontSize: '25px' }}>
+                                {`Time Left: ${time}s`}
                               </p>
-                              <p>
+                              <p style={{ fontSize: '20px' }}>
                                 {`(${curQ.type}) Question: ${curQ.question}`}
                               </p>
                               {

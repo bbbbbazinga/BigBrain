@@ -16,11 +16,11 @@ function Home() {
       <h1>
         Welcome!
       </h1>
-      <button className="BTN" onClick={handleClickL} type="button">
+      <button className="BTN B1" onClick={handleClickL} type="button">
         Login
       </button>
       <br />
-      <button className="BTN" onClick={handleClickR} type="button">
+      <button className="BTN B2" onClick={handleClickR} type="button">
         Register
       </button>
     </div>

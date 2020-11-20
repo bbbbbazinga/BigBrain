@@ -2,16 +2,19 @@
     width: 80%;
     height: 600px;
     text-align: center;
-    background: url(../bgc/bgc7);
+    background: url(../bgc/bgc10.gif);
     background-size: 100% 100%;
     color: #fff;
-    padding-top: 200px;
     margin: 0 auto;
 }
 
 .mainPage h1, .BTN {
     font-size: 40px;
     line-height: 70px;
+}
+
+.mainPage h1 {
+    padding-top: 100px;
 }
 
 .BTN {
@@ -28,4 +31,10 @@
     cursor: pointer;
     color: #312e37;
     background-color: white;
+}
+
+@media screen and (max-width: 870px) {
+    .mainPage {
+        width: 100%;
+    }
 }
