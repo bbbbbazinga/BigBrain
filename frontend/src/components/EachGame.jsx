@@ -83,12 +83,10 @@ function EachGame({
         {id}
       </p>
       <p>
-        Number of questions:
-        {qNum}
+        {`Number of questions: ${qNum}`}
       </p>
       <p>
-        Total Time:
-        {qTime}
+        {`Total Time (s): ${qTime}`}
       </p>
       {
         thumbnail === null

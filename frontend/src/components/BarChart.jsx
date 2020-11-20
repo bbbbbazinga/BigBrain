@@ -10,7 +10,7 @@ function BarChart({ correctPer, avgTime }) {
     labels: correctLabels,
     datasets: [
       {
-        label: 'Correct rate of each question (%)',
+        label: 'Correct rate (%)',
         backgroundColor: 'rgba(255,99,132,0.2)',
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
@@ -52,7 +52,7 @@ function BarChart({ correctPer, avgTime }) {
     labels: avgLabels,
     datasets: [
       {
-        label: 'Average answer time for each question (s)',
+        label: 'Average answer time (s)',
         backgroundColor: 'rgba(40,157,235,0.2)',
         borderColor: 'rgba(40,157,235,1)',
         borderWidth: 1,
