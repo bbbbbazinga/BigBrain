@@ -36,15 +36,15 @@ function Register() {
     <form id="registerForm">
       Email:
       <br />
-      <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
+      <input name="email" type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
       <br />
       Password:
       <br />
-      <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+      <input name="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
       <br />
       Name:
       <br />
-      <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+      <input name="name" type="text" value={name} onChange={(event) => setName(event.target.value)} />
       <br />
       <button className="btn" type="submit" form="registerForm" onClick={submitForm}>Register</button>
     </form>

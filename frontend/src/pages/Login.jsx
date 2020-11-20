@@ -35,11 +35,11 @@ function Login() {
     <form id="loginForm">
       Email:
       <br />
-      <input type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
+      <input name="email" type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
       <br />
       Password:
       <br />
-      <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+      <input name="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
       <br />
       <button className="btn" type="submit" form="loginForm" onClick={loginForm}>Login</button>
     </form>
