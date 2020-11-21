@@ -44,10 +44,6 @@ function EditQuestion() {
 
   return (
     <div className="editQ content">
-      {/* {`EditGame ${gameid} ${questionid}`}
-      <br />
-      {question.question}
-      <br /> */}
       <div className="topCreate">
         <LogoutBtn />
         <button type="button" onClick={() => history.goBack()}>Back</button>

@@ -3,10 +3,8 @@ import {
   useState,
 } from 'react';
 import { useHistory } from 'react-router-dom';
-// import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-// import Backdrop from '@material-ui/core/Backdrop';
 import API from '../helper/api';
 import clickToCopy from '../helper/clickToCopy';
 
@@ -38,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 2, 2),
   },
 }));
-// { active }
+
 function PopUpModal() {
   const classes = useStyles();
   const api = new API('http://localhost:5005');
@@ -159,7 +157,7 @@ function PopUpModal() {
       <div className="options">
         <button data-test-target="start" className="gameOptions" type="button" onClick={handleOpen}>Start to Play</button>
         <button data-test-target="end" className="gameOptions" type="button" onClick={stopOp}>Stop the Game</button>
-        <button className="gameOptions" type="button" onClick={nextQ}>Advance</button>
+        <button className="gameOptions" type="button" onClick={nextQ}>Play the Next Question</button>
       </div>
       <Modal
         open={open}
@@ -172,9 +170,5 @@ function PopUpModal() {
     </div>
   );
 }
-
-// PopUpModal.propTypes = {
-//   active: PropTypes.number.isRequired,
-// };
 
 export default PopUpModal;

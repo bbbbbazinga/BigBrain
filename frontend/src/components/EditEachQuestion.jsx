@@ -54,9 +54,6 @@ function EditEachQuestion({ quizId, questionId }) {
       newCheck[index] = e.target.checked;
       setChecked(newCheck);
     }
-    // const newChecked = [...checked];
-    // newChecked[index] = e.target.checked;
-    // setChecked(newChecked);
   };
 
   const chooseImage = async (e) => {

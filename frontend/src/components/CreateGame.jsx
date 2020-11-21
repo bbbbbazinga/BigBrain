@@ -16,7 +16,7 @@ function CreateGame() {
   const showInput = (event) => {
     event.preventDefault();
     const createDiv = document.querySelector('.createGame');
-    createDiv.style.display = createDiv.style.display === 'none' ? 'flex' : 'none';
+    createDiv.style.display = createDiv.style.display === 'flex' ? 'none' : 'flex';
   };
 
   // create a new game

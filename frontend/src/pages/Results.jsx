@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import LogoutBtn from '../components/Logout';
 import API from '../helper/api';
 import BarChart from '../components/BarChart';
-// import EachResult from '../components/EachResult';
 import '../css/results.css';
 
 function Results() {

@@ -90,6 +90,11 @@ button {
   padding: 15px;
 }
 
+.logoutBTN:hover {
+  color: black;
+  background: #fff;
+}
+
 @media screen and (max-width: 870px) {
   .content {
       width: 90%;

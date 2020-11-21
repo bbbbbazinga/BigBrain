@@ -1,7 +1,6 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
-// import { createMemoryHistory } from 'history';
 import Login from './Login';
 
 configure({ adapter: new Adapter() });
@@ -13,13 +12,13 @@ describe('Test the login component', () => {
     password: '1234',
   };
 
-  it('check email input', () => {
+  it('check email input exits', () => {
     expect(wrapper.find('input[type="text"]').length).toEqual(1);
   });
-  it('check password input', () => {
+  it('check password input exits', () => {
     expect(wrapper.find('input[type="password"]').length).toEqual(1);
   });
-  it('check button', () => {
+  it('check button exits', () => {
     expect(wrapper.find('button').length).toEqual(1);
   });
 

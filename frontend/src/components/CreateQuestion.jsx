@@ -126,16 +126,6 @@ function CreateQuestion({ quizId }) {
             <option value="Multi-select">Multi-select</option>
           </select>
         </label>
-        {/* <FormControl variant="filled">
-          <InputLabel id="filled-label">Question Type</InputLabel>
-          <Select
-            labelId="qtype-select-label"
-            onChange={(e) => setType(e.target.value)}
-          >
-            <MenuItem value="Single select">Single select</MenuItem>
-            <MenuItem value="Multi-select">Multi-select</MenuItem>
-          </Select>
-        </FormControl> */}
         <label htmlFor="timeLimit">
           <span style={{ width: '30%' }}>Time Limit (s):</span>
           <input id="timeLimit" type="number" placeholder="End with second" value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} />

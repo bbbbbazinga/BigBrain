@@ -7,8 +7,6 @@ import '../css/PlayJoin.css';
 function PlayJoin() {
   const { active } = useParams();
   const api = new API('http://localhost:5005');
-  // const token = window.localStorage.getItem('token');
-  // const query = `Bearer ${token}`;
   const curQuizId = localStorage.getItem('curQuizId');
   const [name, setName] = useState('');
   const [playerId, setPlayerId] = useState(0);

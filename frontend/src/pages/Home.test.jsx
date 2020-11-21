@@ -22,16 +22,4 @@ describe('Test the login component', () => {
   it('contains a button with the "Register"', () => {
     expect(wrapper.find('.B2').text()).toEqual('Register');
   });
-
-  // it('should call the login button on button click', () => {
-  //   const onClick = jest.fn(() => console.log(1));
-  //   wrapper.find('.B1').simulate('click', onClick);
-  //   expect(onClick).toHaveBeenCalledTimes(1);
-  // });
-
-  // it('should call the register button on button click', () => {
-  //   const pushSpy = jest.spyOn(history, 'push');
-  //   wrapper.find('.B2').simulate('click');
-  //   expect(pushSpy).toHaveBeenCalled();
-  // });
 });

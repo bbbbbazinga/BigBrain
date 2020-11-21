@@ -23,9 +23,7 @@ export default function UploadJSON({ quizId }) {
     const UploadF = file.files;
     const reader = new FileReader();
     reader.readAsDataURL(UploadF[0]);
-    // 读取完文件之后会回来这里
     reader.onload = function (e) {
-      // 读取文件内容
       const fileString = e.target.result;
       fetch(fileString, {
         method: 'GET',
@@ -39,7 +37,6 @@ export default function UploadJSON({ quizId }) {
           return each;
         });
         const newEachGame = { ...eachGame };
-        // newQuestions = [...eachGame.questions, newQuestions];
         newEachGame.questions = newQuestions;
         api.put(`admin/quiz/${quizId}`, {
           headers: {

@@ -22,7 +22,6 @@ function BarChart({ correctPer, avgTime }) {
   };
 
   const correctPerOptions = {
-    // maintainAspectRatio: false,
     responsive: true,
     title: {
       display: true,
@@ -64,7 +63,6 @@ function BarChart({ correctPer, avgTime }) {
   };
 
   const avgTimeOptions = {
-    // maintainAspectRatio: false,
     responsive: true,
     title: {
       display: true,

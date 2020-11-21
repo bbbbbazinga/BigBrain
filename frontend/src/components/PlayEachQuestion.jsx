@@ -233,9 +233,9 @@ function PlayEachQuestion({ playerId }) {
                                 correctAns.length === 0
                                   ? <div />
                                   : (
-                                    <div style={{ marginTop: '30px' }}>
+                                    <div className="CorrectAns">
                                       Correct Answer:
-                                      {correctAns.map((answer) => (<p>{answer}</p>))}
+                                      {correctAns.map((answer) => (<span>{answer}</span>))}
                                     </div>
                                   )
                               }
@@ -251,8 +251,8 @@ function PlayEachQuestion({ playerId }) {
                       {
                         result.map((each, index) => <div>{`Q${index + 1}: ${each} (Points: ${points[index]})`}</div>)
                       }
-                      <div>{`Correct Rate: ${(correctRate * 100).toFixed(2)}%`}</div>
-                      <div>{`Total Points: ${totalPoints}`}</div>
+                      <div style={{ color: 'purple' }}>{`Correct Rate: ${(correctRate * 100).toFixed(2)}%`}</div>
+                      <div style={{ color: 'purple' }}>{`Total Points: ${totalPoints}`}</div>
                     </div>
                   )
               }

@@ -47,7 +47,6 @@ input {
     font-weight: bold;
     background: url('../bgc/bgc1.jpg');
     background-size: 100% 100%;
-    /* border: 2px solid purple; */
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgb(186, 238, 237);
     padding: 10px;
@@ -58,12 +57,20 @@ input {
     margin-left: 20px;
 }
 
+.CorrectAns {
+    margin: 20px 0 10px 20px;
+    color: purple;
+    font-size: 20px;
+}
+
+.CorrectAns span {
+    margin-left: 10px;
+}
+
 @media screen and (max-width: 870px) {
     #nameForm,
     .eachGamePlay {
         width: 90%;
         margin: 30px auto;
     }
-
-
 }

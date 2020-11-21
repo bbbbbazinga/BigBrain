@@ -13,7 +13,7 @@ const StoryProvider = ({ children }) => {
       {
         "qid": "1tlcb5rdp4s",
         "question": "which city is the capital of China",
-        "type": "single select",
+        "type": "Single select",
         "timeLimit": 60,
         "points": 100,
         "image": "",
