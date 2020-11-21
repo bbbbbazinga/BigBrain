@@ -6,8 +6,7 @@ import Home from './Home';
 configure({ adapter: new Adapter() });
 
 describe('Test the login component', () => {
-  const history = { push: jest.fn() };
-  const wrapper = shallow(<Home history={history} />);
+  const wrapper = shallow(<Home />);
   it('should match the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -25,9 +24,9 @@ describe('Test the login component', () => {
   });
 
   // it('should call the login button on button click', () => {
-  //   const pushSpy = jest.spyOn(history, 'push');
-  //   wrapper.find('.B1').simulate('click');
-  //   expect(pushSpy).toHaveBeenCalled();
+  //   const onClick = jest.fn(() => console.log(1));
+  //   wrapper.find('.B1').simulate('click', onClick);
+  //   expect(onClick).toHaveBeenCalledTimes(1);
   // });
 
   // it('should call the register button on button click', () => {

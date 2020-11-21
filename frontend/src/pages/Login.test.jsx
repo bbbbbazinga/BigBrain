@@ -12,9 +12,6 @@ describe('Test the login component', () => {
     email: 'aimee1@gmail.com',
     password: '1234',
   };
-  it('should match the snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
-  });
 
   it('check email input', () => {
     expect(wrapper.find('input[type="text"]').length).toEqual(1);
@@ -62,22 +59,5 @@ describe('Test the login component', () => {
     expect(wrapper.find('input[type="password"]').prop('value')).toEqual(
       '1234',
     );
-  });
-
-  it('should call the submit button on button click', () => {
-    wrapper.find('input[type="text"]').simulate('change', {
-      target: {
-        value: testProps.email,
-      },
-    });
-    wrapper.find('input[type="password"]').simulate('change', {
-      target: {
-        value: testProps.password,
-      },
-    });
-    wrapper.find('button').simulate('click');
-    // expect(localStorage.setItem).toHaveBeenCalledTimes(1);
-    // expect(localStorage.getItem.mock.calls.length).toBe(1);
-    expect(global.window.location.pathname).toEqual('/dashboard');
   });
 });

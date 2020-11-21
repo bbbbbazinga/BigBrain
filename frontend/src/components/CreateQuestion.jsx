@@ -8,7 +8,6 @@ import UploadJSON from './UploadJSON';
 
 // Create a new question component
 function CreateQuestion({ quizId }) {
-  // 每次新增一个question，eachGame也要对应进行更新
   const context = useContext(StoreContext);
   const { eachGame: [eachGame, setEachGame] } = context;
 

@@ -11,7 +11,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const loginForm = async (event) => {
+  const loginForm = (event) => {
     event.preventDefault();
     api.post('admin/auth/login', {
       body: JSON.stringify({

@@ -53,14 +53,6 @@ function EachQuestion({
     <div className="eachQuestionShow">
       <button className="btnEach" type="button" onClick={deleteOp}>Delete</button>
       <button className="btnEach" type="button" onClick={editOp}>Edit</button>
-      {/* <p>
-        Game Id:
-        {quizId}
-      </p>
-      <p className="question-id">
-        Question Id:
-        {questionId}
-      </p> */}
       <p>
         Question:
         {question}
