@@ -34,9 +34,18 @@ function CreateQuestion({ quizId }) {
   };
 
   const changeCheck = (e, index) => {
-    const newChecks = [...checks];
-    newChecks[index] = e.target.checked;
-    setChecks(newChecks);
+    if (type === 'Single select') {
+      const newCheck = [false, false, false, false, false, false];
+      if (e.target.checked) {
+        newCheck[index] = true;
+      }
+      setChecks(newCheck);
+    }
+    if (type === 'Multi-select') {
+      const newCheck = [...checks];
+      newCheck[index] = e.target.checked;
+      setChecks(newCheck);
+    }
   };
 
   // once click the Add button, trigger the pur method of "admin/quiz/{quizid}"
@@ -150,6 +159,7 @@ function CreateQuestion({ quizId }) {
             <Checkbox
               id="check0"
               value={checks[0]}
+              checked={checks[0]}
               onChange={(e) => changeCheck(e, 0)}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
@@ -159,6 +169,7 @@ function CreateQuestion({ quizId }) {
             <Checkbox
               id="check1"
               value={checks[1]}
+              checked={checks[1]}
               onChange={(e) => changeCheck(e, 1)}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
@@ -168,6 +179,7 @@ function CreateQuestion({ quizId }) {
             <Checkbox
               id="check2"
               value={checks[2]}
+              checked={checks[2]}
               onChange={(e) => changeCheck(e, 2)}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
@@ -177,6 +189,7 @@ function CreateQuestion({ quizId }) {
             <Checkbox
               id="check3"
               value={checks[3]}
+              checked={checks[3]}
               onChange={(e) => changeCheck(e, 3)}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
@@ -186,6 +199,7 @@ function CreateQuestion({ quizId }) {
             <Checkbox
               id="check4"
               value={checks[4]}
+              checked={checks[4]}
               onChange={(e) => changeCheck(e, 4)}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
@@ -195,6 +209,7 @@ function CreateQuestion({ quizId }) {
             <Checkbox
               id="check5"
               value={checks[5]}
+              checked={checks[5]}
               onChange={(e) => changeCheck(e, 5)}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />

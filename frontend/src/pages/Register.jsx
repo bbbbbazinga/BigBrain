@@ -13,23 +13,27 @@ function Register() {
 
   const submitForm = async (event) => {
     event.preventDefault();
-    api.post('admin/auth/register', {
-      body: JSON.stringify({
-        email,
-        password,
-        name,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(() => {
-        // window.localStorage.setItem('token', JSON.stringify(res));
-        history.push('/login');
+    if (email === '' || password === '' || name === '') {
+      alert('Please fill the form!');
+    } else {
+      api.post('admin/auth/register', {
+        body: JSON.stringify({
+          email,
+          password,
+          name,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       })
-      .catch((err) => {
-        alert(err);
-      });
+        .then(() => {
+          // window.localStorage.setItem('token', JSON.stringify(res));
+          history.push('/login');
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    }
   };
 
   return (

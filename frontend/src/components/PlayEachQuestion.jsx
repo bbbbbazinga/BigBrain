@@ -107,12 +107,10 @@ function PlayEachQuestion({ playerId }) {
           setCheck([false, false, false, false, false, false]);
           setCorrectAns([]);
           setPoints([...points, Number(data.question.points)]);
-          console.log(data.question);
-          console.log(playerId);
+          // console.log(data.question);
+          // console.log(playerId);
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch(() => {});
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playerId, curQid]);
@@ -140,7 +138,7 @@ function PlayEachQuestion({ playerId }) {
               .map((each) => each.answer);
             setCorrectAns(newCorrectAns);
           })
-          .catch((err) => console.log(err));
+          .catch(() => {});
       }
     }
 
@@ -165,8 +163,8 @@ function PlayEachQuestion({ playerId }) {
           answerIds,
         }),
       })
-        .then(() => console.log('success'))
-        .catch((err) => console.log(err));
+        .then(() => {})
+        .catch(() => {});
     }
   }, [check, playerId, curQid]);
 
