@@ -41,9 +41,22 @@ function EditEachQuestion({ quizId, questionId }) {
     const newQuestion = { ...question };
     newQuestion.answers[index].correct = e.target.checked;
     setQuestion(newQuestion);
-    const newChecked = [...checked];
-    newChecked[index] = e.target.checked;
-    setChecked(newChecked);
+
+    if (question.type === 'Single select') {
+      const newCheck = [false, false, false, false, false, false];
+      if (e.target.checked) {
+        newCheck[index] = true;
+      }
+      setChecked(newCheck);
+    }
+    if (question.type === 'Multi-select') {
+      const newCheck = [...checked];
+      newCheck[index] = e.target.checked;
+      setChecked(newCheck);
+    }
+    // const newChecked = [...checked];
+    // newChecked[index] = e.target.checked;
+    // setChecked(newChecked);
   };
 
   const chooseImage = async (e) => {

@@ -25,7 +25,7 @@ function PlayJoin() {
     })
       .then((res) => {
         setPlayerId(res.playerId);
-        console.log(res.playerId);
+        // console.log(res.playerId);
         const playGame = document.querySelector('.playGame');
         playGame.style.display = playGame.style.display === 'none' ? 'block' : 'none';
         const nForm = document.querySelector('#nameForm');

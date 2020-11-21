@@ -59,7 +59,7 @@ export default function UploadJSON({ quizId }) {
           .catch((err) => {
             alert(err);
           });
-      }).catch((err) => console.log(err));
+      }).catch(() => {});
     };
   };
 

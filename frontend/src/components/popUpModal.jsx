@@ -82,8 +82,8 @@ function PopUpModal() {
                 Authorization: query,
               },
             })
-              .then((res) => {
-                console.log(res.results);
+              .then(() => {
+                // console.log(res.results);
               })
               .catch((err) => {
                 alert(err);
@@ -115,7 +115,7 @@ function PopUpModal() {
         if (active === '') {
           alert(err);
         }
-        console.log(err);
+        // console.log(err);
       }
       if (active !== '') {
         const turnToRes = window.confirm('Would you like to view the results?');

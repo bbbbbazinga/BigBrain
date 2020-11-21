@@ -24,7 +24,11 @@ function ShowEachQuestion() {
       </div>
       <div>
         <p>Image:</p>
-        <img src={question.image} alt="questionImage" style={{ width: '150px', objectFit: 'contain' }} />
+        {
+          question.image === ''
+            ? <div />
+            : <img src={question.image} alt="questionImage" style={{ width: '150px', objectFit: 'contain' }} />
+        }
       </div>
       <div>
         {`YouTube Link: ${question.video}`}
