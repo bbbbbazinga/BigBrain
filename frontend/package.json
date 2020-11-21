@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx}"
   },
@@ -43,8 +43,8 @@
     ]
   },
   "devDependencies": {
-    "enzyme-adapter-react-16": "^1.15.5",
     "cypress": "^5.6.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.12.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.1",
